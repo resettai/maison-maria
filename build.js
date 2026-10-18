@@ -56,7 +56,7 @@ ${body}
     <div><img src="/assets/maison-maria-lockup-inverse.svg" alt="Maison Maria" width="640" height="420"><p class="ftr-note" style="margin-top:1rem">Solpleie som hudpleie. Formulert og produsert i Frankrike. Ålesund, Norge.</p></div>
     <div><h4>Butikk</h4><a href="/shop#solpleie">Solpleie</a><a href="/shop#hudpleie">Hudpleie</a><a href="/vanity">Vanity Collection</a><a href="/handlekurv">Handlekurv</a></div>
     <div><h4>Maison</h4><a href="/maison">Om Maison Maria</a><a href="/maison#maria">Maria</a><a href="/maison#france">Fabriqué en France</a><a href="/journal">Journal</a></div>
-    <div><h4>Forhåndsvisning</h4><p class="ftr-note">Betaling er ikke aktivert. Produktbilder er AI-genererte mockups, tydelig merket, og produktinformasjon, priser og påstander er foreløpige til de er godkjent. MARIA Skincare AS (under stiftelse), 2026.</p></div>
+    <div><h4>Forhåndsvisning</h4><p class="ftr-note">Betaling er ikke aktivert. Produktbilder er AI-genererte mockups, tydelig merket. Bildene av Maria er ekte fotografier. Produktinformasjon, priser og påstander er foreløpige til de er godkjent. MARIA Skincare AS (under stiftelse), 2026.</p></div>
   </div>
 </footer>
 <div class="drawer-bg" data-close-cart></div>
@@ -122,6 +122,18 @@ const home = layout({
     <h2 id="h-vanity">Hele rutinen, pakket i espresso og gull.</h2>
     <p>Tre størrelser: King Size til badet, Medium til reisen, Mini til vesken. Vegansk skinn, champagnegull beslag, og produktene ferdig pakket.</p>
     <a class="btn" href="/vanity">Se Vanity Collection</a>
+  </div>
+</section>
+
+<section class="band band--founder" aria-labelledby="h-maria">
+  <div class="band-img band-img--photo"><img src="/assets/img/maria-sol.jpg" alt="Maria Taftesund i lav kveldssol" loading="lazy" width="720" height="1280"></div>
+  <div class="band-txt">
+    <span class="ui" style="color:var(--gold)">Grunnlegger</span>
+    <h2 id="h-maria">Maria Taftesund</h2>
+    <p class="quote" style="margin-top:1.2rem">«Jeg har trent ute hele livet. Huden har fått mer sol enn beskyttelse. MARIA er det jeg selv manglet: en SPF jeg faktisk har lyst til å bruke hver dag.»</p>
+    <p>Serien er utviklet med Maria fra første skisse: hva som faktisk brukes, hva som blir liggende, og hvordan en SPF må føles for å bli påført igjen midt på dagen.</p>
+    <a class="btn btn--ghost" href="/maison#maria">Møt Maria</a>
+    <p class="photo-note">Foto: Maria Taftesund · ekte foto, ubehandlet</p>
   </div>
 </section>
 
@@ -240,9 +252,15 @@ const maison = layout({
 <section class="sec" id="maria" aria-labelledby="hmaria"><div class="wrap" style="display:grid;gap:2.5rem">
   <div class="sec-head"><span class="ui">Grunnlegger</span><h2 id="hmaria">Maria Taftesund</h2></div>
   <div style="display:grid;gap:2rem;grid-template-columns:1fr;align-items:start" class="maria-grid">
-    <figure class="portrait-slot" style="max-width:30rem"><span>Portrett av Maria leveres av Maison Maria. Ingen AI-genererte personer brukes.</span></figure>
+    <figure class="portrait" style="max-width:30rem"><img src="/assets/img/maria-havn-45.jpg" alt="Maria Taftesund ved sjøen i Oslo" width="720" height="900" fetchpriority="high"><figcaption class="photo-note">Foto: Maria Taftesund · ubehandlet, kun beskåret</figcaption></figure>
     <div><p class="quote">«Jeg har trent ute hele livet. Huden har fått mer sol enn beskyttelse. MARIA er det jeg selv manglet: en SPF jeg faktisk har lyst til å bruke hver dag.»</p><p class="quote-by">Maria Taftesund <span>utkast, godkjennes</span></p><p style="margin-top:1.5rem">Maria er treningsprofil fra Ålesund med et stort, internasjonalt publikum. Serien er utviklet med henne fra første skisse: hva som faktisk brukes, hva som blir liggende, og hvordan en SPF må føles for å bli påført igjen midt på dagen.</p></div>
   </div>
+  <div class="photo-grid" aria-label="Bilder av Maria">
+    <figure><img src="/assets/img/maria-trapp-45.jpg" alt="Maria Taftesund i kremhvit kjole på en trapp" loading="lazy" width="720" height="900"></figure>
+    <figure><img src="/assets/img/maria-sol-45.jpg" alt="Maria Taftesund i lav kveldssol" loading="lazy" width="720" height="900"></figure>
+    <figure><img src="/assets/img/maria-bil-45.jpg" alt="Maria Taftesund, portrett i dagslys" loading="lazy" width="720" height="900"></figure>
+  </div>
+  <p class="photo-note">Alle bilder av Maria er ekte fotografier levert av henne. Ingen AI-genererte personer. Produktbildene på siden er merket som AI-genererte mockups.</p>
 </div></section>
 <section class="sec" style="background:var(--espresso);color:var(--ivory)"><div class="wrap">
   <div class="sec-head"><span class="ui" style="color:var(--gold)">Soleil du Nord</span><h2>Hvorfor et norsk solpleiemerke.</h2><p style="color:#D9CFC2">Norge har en av verdens høyeste forekomster av melanom. Før fylte 50 rammes kvinner oftest.</p></div>

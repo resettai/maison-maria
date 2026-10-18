@@ -189,9 +189,26 @@ body[data-cart-open="true"] .drawer-bg { opacity: 1; pointer-events: auto; }
 .cart-sum { margin-top: 1.5rem; display: grid; gap: .8rem; max-width: 24rem; margin-left: auto; }
 
 /* ----- maison page ----- */
-.portrait-slot { aspect-ratio: 4 / 5; display: grid; place-items: center; background: linear-gradient(150deg, var(--ivory-2), var(--sand)); position: relative; }
-.portrait-slot::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(200,169,97,.6); }
-.portrait-slot span { font-family: var(--sans); font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--taupe-2); text-align: center; padding: 1rem; }
+.portrait img { width: 100%; height: auto; display: block; aspect-ratio: 4 / 5; object-fit: cover; background: var(--sand); }
+.photo-note { font-family: var(--sans); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--taupe-2); margin-top: .6rem; line-height: 1.6; }
+.photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin-top: .5rem; }
+.photo-grid figure { margin: 0; background: var(--sand); }
+.photo-grid img { width: 100%; height: auto; display: block; aspect-ratio: 4 / 5; object-fit: cover; }
+@media (min-width: 60rem) { .photo-grid { gap: 1.5rem; margin-top: 1rem; } }
+
+/* ----- founder band ----- */
+.band--founder { padding: 3.5rem var(--gutter) 0; gap: 1.5rem; background: var(--ivory); }
+.band--founder .band-img { aspect-ratio: 4 / 5; height: auto; min-height: 0; max-width: 30rem; width: 100%; }
+.band--founder .band-img img { object-position: 50% 22%; }
+.band--founder .band-txt { padding: 1rem 0 3.5rem; }
+.band--founder .band-txt h2 { margin-top: .6rem; }
+.band--founder .band-txt .quote { margin-top: 1.2rem; font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+.band--founder .photo-note { margin-top: 1.4rem; }
+@media (min-width: 60rem) {
+  .band--founder { padding: 5rem var(--gutter); grid-template-columns: 1fr 1fr; gap: 0; }
+  .band--founder .band-img { max-width: 34rem; min-height: 0; height: auto; justify-self: end; }
+  .band--founder .band-txt { padding: 0 0 0 clamp(2.5rem, 6vw, 6rem); justify-self: start; }
+}
 .quote { font-style: italic; font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.35; max-width: 30rem; }
 .quote-by { margin-top: 1rem; font-family: var(--sans); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; }
 .quote-by span { color: var(--taupe-2); margin-left: .8rem; }

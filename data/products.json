@@ -1,0 +1,275 @@
+{
+  "currency": "NOK",
+  "categories": [
+    {
+      "id": "solpleie",
+      "name": "Solpleie",
+      "blurb": "SPF 50+ som føles som hudpleie."
+    },
+    {
+      "id": "hudpleie",
+      "name": "Hudpleie",
+      "blurb": "Det som kommer før og etter solen."
+    },
+    {
+      "id": "vanity",
+      "name": "Vanity Collection",
+      "blurb": "Hele rutinen, pakket i espresso-skinn med gull."
+    }
+  ],
+  "products": [
+    {
+      "slug": "daily-fluid",
+      "name": "Daily Fluid",
+      "sub": "SPF 50+",
+      "category": "solpleie",
+      "price": 695,
+      "format": "50 ml · frostet glass, airless",
+      "kicker": "Den daglige.",
+      "short": "En fluid så lett at den forsvinner i huden, med svært høy beskyttelse mot UVB og UVA. Det siste steget hver morgen, under sminke eller alene.",
+      "claims": [
+        "Svært høy beskyttelse, SPF 50+",
+        "UVA-beskyttelse på minst en tredjedel av SPF",
+        "Usynlig, uten hvit hinne",
+        "Parfymefri, ikke-komedogen, vegansk"
+      ],
+      "use": "Påfør rikelig som siste steg i morgenrutinen, 15 minutter før du går ut. To pumpetrykk dekker ansikt og hals. Gjenta hver andre time ved opphold ute, og etter svette eller bading.",
+      "details": [
+        "Vannresistent 40 min (ISO 16217)",
+        "Kun EU-godkjente UV-filtre: Tinosorb S/M, Uvinul A Plus, Uvinul T150",
+        "Niacinamid 4 %, vitamin E, pantenol",
+        "Holdbar 12 måneder etter åpning"
+      ],
+      "image": "daily-fluid",
+      "alt": "MARIA Daily Fluid SPF 50+ i frostet glass med espressobrun kork (AI-generert produktmockup)",
+      "hero": true
+    },
+    {
+      "slug": "tinted-fluid",
+      "name": "Tinted Fluid",
+      "sub": "SPF 50+",
+      "category": "solpleie",
+      "price": 745,
+      "format": "50 ml · tre nyanser",
+      "kicker": "Den med farge.",
+      "short": "Samme filtre som Daily Fluid, med mineralpigmenter som jevner ut huden. Lett dekning som ser ut som hud, ikke sminke.",
+      "claims": [
+        "Svært høy beskyttelse, SPF 50+",
+        "Lett dekning med jernoksider",
+        "Tre nyanser, fra lys til dyp",
+        "Parfymefri, ikke-komedogen, vegansk"
+      ],
+      "use": "Påfør som siste steg om morgenen, alene eller under pudder. Bland nyanser ved behov. Gjenta hver andre time ute.",
+      "details": [
+        "Nyanser: Lys, Medium, Dyp",
+        "Kun EU-godkjente UV-filtre",
+        "Jernoksider gir ekstra beskyttelse mot synlig lys",
+        "Holdbar 12 måneder etter åpning"
+      ],
+      "variants": {
+        "label": "Nyanse",
+        "options": [
+          "Lys",
+          "Medium",
+          "Dyp"
+        ]
+      },
+      "image": "tinted-fluid",
+      "alt": "MARIA Tinted Fluid SPF 50+ med tre nyanseprikker (AI-generert produktmockup)"
+    },
+    {
+      "slug": "sport-stick",
+      "name": "Sport Stick",
+      "sub": "SPF 50+",
+      "category": "solpleie",
+      "price": 445,
+      "format": "20 g · espresso lakk med gullbånd",
+      "kicker": "Den du tar med.",
+      "short": "Påføres uten hender, over svette, på fjellet eller ved startstreken. Svært vannbestandig og liten nok til lommen.",
+      "claims": [
+        "Svært høy beskyttelse, SPF 50+",
+        "Svært vannresistent, 80 min",
+        "Svetteresistent, testet",
+        "Parfymefri, vegansk"
+      ],
+      "use": "Dra stiften over ansikt, nese, ører og nakke. Gjenta hver andre time, og etter svette eller bading.",
+      "details": [
+        "Varmstøpt voksbase med Tinosorb S/M og Uvinul T150",
+        "Matt finish, drar ikke i huden",
+        "Holdbar 12 måneder etter åpning"
+      ],
+      "image": "sport-stick",
+      "alt": "MARIA Sport Stick SPF 50+ i espressobrun lakk med gullbånd (AI-generert produktmockup)"
+    },
+    {
+      "slug": "lip-spf30",
+      "name": "Lip",
+      "sub": "SPF 30",
+      "category": "solpleie",
+      "price": 295,
+      "format": "4,5 g · espresso lakk",
+      "kicker": "Den lille.",
+      "short": "Sheasmør og candelillavoks med SPF 30. Uten smak og uten parfyme. Leppene får like mye sol som resten av ansiktet, og langt mindre beskyttelse.",
+      "claims": [
+        "Høy beskyttelse, SPF 30",
+        "UVA-beskyttelse på minst en tredjedel av SPF",
+        "Uten smak og parfyme",
+        "Vegansk"
+      ],
+      "use": "Påfør før du går ut, og gjenta gjennom dagen, etter mat og drikke.",
+      "details": [
+        "Tinosorb M og Uvinul T150",
+        "Sheasmør, candelillavoks, vitamin E",
+        "Holdbar 12 måneder etter åpning"
+      ],
+      "image": "lip-spf30",
+      "alt": "MARIA Lip SPF 30 leppestift i espressobrun lakk (AI-generert produktmockup)"
+    },
+    {
+      "slug": "cleanser",
+      "name": "Cleanser",
+      "sub": "Gel-to-milk",
+      "category": "hudpleie",
+      "price": 495,
+      "format": "150 ml · frostet glass med pumpe",
+      "kicker": "Den som avslutter dagen.",
+      "short": "En gel som blir til melk med vann og løser SPF 50+ fra huden uten å tørke den ut. pH 5,5, parfymefri.",
+      "claims": [
+        "Fjerner SPF 50+, dokumentert",
+        "pH 5,5, sulfatfri",
+        "Parfymefri, vegansk",
+        "Dermatologisk testet"
+      ],
+      "use": "Masser én pumpe i tørre hender over tørt ansikt. Tilsett vann til gelen blir melk, skyll av. Brukes morgen og kveld.",
+      "details": [
+        "Milde tensider fra glukosider",
+        "Glyserin og pantenol",
+        "Holdbar 12 måneder etter åpning"
+      ],
+      "image": "cleanser",
+      "alt": "MARIA Cleanser i frostet glassflaske med espressobrun pumpe (AI-generert produktmockup)"
+    },
+    {
+      "slug": "startsettet",
+      "name": "Startsettet",
+      "sub": "Daily Fluid · Sport Stick · Lip",
+      "category": "solpleie",
+      "price": 1295,
+      "compare": 1435,
+      "format": "Tre produkter · spar NOK 140",
+      "kicker": "Det en dag ute krever.",
+      "short": "Én til ansiktet, én til lommen, én til leppene. Daily Fluid SPF 50+, Sport Stick SPF 50+ og Lip SPF 30 i én eske.",
+      "claims": [
+        "Daily Fluid SPF 50+, 50 ml",
+        "Sport Stick SPF 50+, 20 g",
+        "Lip SPF 30, 4,5 g",
+        "Eske i elfenbenspapp med blindpreg"
+      ],
+      "use": "Daily Fluid om morgenen, Sport Stick og Lip gjennom dagen.",
+      "details": [
+        "Samlet verdi NOK 1 435",
+        "Pakkes som gave på forespørsel"
+      ],
+      "image": "collection",
+      "alt": "MARIA-kolleksjonen samlet på travertin (AI-generert produktmockup)",
+      "set": [
+        "daily-fluid",
+        "sport-stick",
+        "lip-spf30"
+      ]
+    },
+    {
+      "slug": "vanity-king-size",
+      "name": "Vanity King Size",
+      "sub": "Maison Maria Vanity Collection",
+      "category": "vanity",
+      "price": 4495,
+      "format": "35 × 25 × 18 cm · espresso vegansk skinn, gull",
+      "kicker": "Hele garderoben.",
+      "short": "Et strukturert beauty case med speil i lokket, uttagbar brett og elfenben semsket innmat. Inneholder hele kolleksjonen, pluss en ekstra Daily Fluid til reiseflasken.",
+      "claims": [
+        "Speil i lokket og uttagbar brett",
+        "Espresso pebbled vegansk skinn, champagnegull beslag",
+        "Inneholder alle fem produktene + ekstra Daily Fluid",
+        "Diskré MARIA-merke i gull"
+      ],
+      "use": "Står på badet eller blir med på reise. Brettet tas ut og alt får sin plass.",
+      "details": [
+        "Mål 35 × 25 × 18 cm, vekt ca. 1,4 kg uten innhold",
+        "Innhold: Daily Fluid × 2, Tinted Fluid, Sport Stick, Lip SPF 30, Cleanser",
+        "Produktverdi NOK 3 370; vesken alene NOK 1 125"
+      ],
+      "image": "vanity-king",
+      "alt": "Maison Maria Vanity King Size, åpent espresso beauty case med speil og hele kolleksjonen (AI-generert produktmockup)",
+      "set": [
+        "daily-fluid",
+        "daily-fluid",
+        "tinted-fluid",
+        "sport-stick",
+        "lip-spf30",
+        "cleanser"
+      ],
+      "dims": "35 × 25 × 18 cm"
+    },
+    {
+      "slug": "vanity-medium",
+      "name": "Vanity Medium",
+      "sub": "Maison Maria Vanity Collection",
+      "category": "vanity",
+      "price": 2695,
+      "format": "27 × 18 × 13 cm · espresso vegansk skinn, gull glidelås",
+      "kicker": "Den som reiser.",
+      "short": "Mykt strukturert reiseetui med gull glidelås og elfenben fôr. Inneholder dagsrutinen: Daily Fluid, Sport Stick, Lip og Cleanser.",
+      "claims": [
+        "Gull glidelås, elfenben fôr",
+        "Espresso pebbled vegansk skinn",
+        "Inneholder Daily Fluid, Sport Stick, Lip SPF 30 og Cleanser",
+        "Får plass i håndbagasjen"
+      ],
+      "use": "Pakk ned, dra opp glidelåsen, ferdig.",
+      "details": [
+        "Mål 27 × 18 × 13 cm",
+        "Innhold: Daily Fluid, Sport Stick, Lip SPF 30, Cleanser",
+        "Produktverdi NOK 1 930; etuiet alene NOK 765"
+      ],
+      "image": "vanity-medium",
+      "alt": "Maison Maria Vanity Medium, espresso reiseetui med gull glidelås og produkter (AI-generert produktmockup)",
+      "set": [
+        "daily-fluid",
+        "sport-stick",
+        "lip-spf30",
+        "cleanser"
+      ],
+      "dims": "27 × 18 × 13 cm"
+    },
+    {
+      "slug": "vanity-mini",
+      "name": "Vanity Mini",
+      "sub": "Maison Maria Vanity Collection",
+      "category": "vanity",
+      "price": 1395,
+      "format": "19 × 12 × 8 cm · espresso vegansk skinn, gull glidelås",
+      "kicker": "Den i vesken.",
+      "short": "En liten pouch i espresso-skinn med gull glidelås. Inneholder Daily Fluid og Lip SPF 30, det du trenger for å gjenta beskyttelsen gjennom dagen.",
+      "claims": [
+        "Gull glidelås, elfenben fôr",
+        "Espresso pebbled vegansk skinn",
+        "Inneholder Daily Fluid og Lip SPF 30",
+        "Flat nok til lommen"
+      ],
+      "use": "Ligger i vesken. Daily Fluid og Lip gjentas midt på dagen.",
+      "details": [
+        "Mål 19 × 12 × 8 cm",
+        "Innhold: Daily Fluid, Lip SPF 30",
+        "Produktverdi NOK 990; pouchen alene NOK 405"
+      ],
+      "image": "vanity-mini",
+      "alt": "Maison Maria Vanity Mini, espresso pouch med gull glidelås og to produkter (AI-generert produktmockup)",
+      "set": [
+        "daily-fluid",
+        "lip-spf30"
+      ],
+      "dims": "19 × 12 × 8 cm"
+    }
+  ]
+}

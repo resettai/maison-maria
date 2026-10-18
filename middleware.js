@@ -13,7 +13,9 @@ const PUBLIC = new Set([
   '/favicon.ico',
   '/favicon-64.png',
   '/apple-touch-icon.png',
-  '/assets/maison-maria-lockup.svg'
+  '/assets/maison-maria-lockup.svg',
+  '/assets/maison-maria-lockup-light.svg',
+  '/assets/img/maria-sol.jpg'
 ]);
 const enc = new TextEncoder();
 
@@ -54,57 +56,92 @@ function page(nextPath, state) {
 <html lang="nb">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3B2A22">
 <title>Maison Maria</title>
 <link rel="icon" href="/favicon-64.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/img/maria-sol.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&amp;family=Inter:wght@400;500&amp;display=swap">
 <style>
-:root { --ivory:#F4EFE6; --ivory-2:#FAF7F1; --sand:#EAE2D6; --taupe:#B9A99B; --taupe-2:#8C7B6B; --espresso:#3B2A22; --ink:#2A1F19; --gold:#C8A961; }
+:root { --ivory:#F4EFE6; --sand:#EAE2D6; --taupe:#B9A99B; --taupe-2:#8C7B6B; --espresso:#3B2A22; --ink:#2A1F19; --gold:#C8A961; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { -webkit-text-size-adjust: 100%; }
-body { min-height: 100svh; background: var(--ivory); color: var(--ink); font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; display: grid; grid-template-rows: 1fr auto; }
-main { display: grid; place-items: center; padding: 3rem 16px; }
-.gate { width: 100%; max-width: 26rem; text-align: center; animation: in .9s ease both; }
-@media (prefers-reduced-motion: reduce) { .gate { animation: none; } }
-@keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-.logo { width: 200px; max-width: 70%; height: auto; display: block; margin: 0 auto; }
-.rule { width: 2.5rem; height: 1px; background: var(--gold); margin: 2rem auto 1.6rem; }
-h1 { font-weight: 300; font-size: clamp(1.7rem, 5vw, 2.1rem); line-height: 1.15; letter-spacing: .01em; }
-.lead { margin-top: .7rem; font-size: 1.15rem; color: var(--taupe-2); }
-form { margin-top: 2rem; text-align: left; }
-label { display: block; font-family: Inter, system-ui, sans-serif; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--taupe-2); }
-input { display: block; width: 100%; margin-top: .3rem; font: inherit; font-size: 1.3rem; letter-spacing: .12em; padding: .55rem 0; border: 0; border-bottom: 1px solid var(--taupe); background: transparent; color: var(--ink); border-radius: 0; outline: none; }
+body { background: var(--espresso); color: var(--ivory); font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; }
+.shell { position: relative; min-height: 100svh; }
+.photo { position: fixed; inset: 0; z-index: 0; background: var(--espresso); }
+.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; display: block; animation: fade 1.4s ease both; }
+.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,31,25,.42) 0%, rgba(42,31,25,0) 24%, rgba(42,31,25,0) 44%, rgba(42,31,25,.86) 74%, rgba(42,31,25,.95) 100%); }
+.panel { position: relative; z-index: 1; min-height: 100svh; display: flex; flex-direction: column; padding: calc(1.4rem + env(safe-area-inset-top)) 20px calc(1.2rem + env(safe-area-inset-bottom)); }
+.logo { width: 150px; height: auto; display: block; margin: 0 auto; }
+.logo--dark { display: none; }
+.rule { width: 2.5rem; height: 1px; background: var(--gold); margin: 1.4rem 0 1.2rem; }
+.gate { margin-top: auto; padding-top: 38svh; animation: in 1s .35s ease both; }
+h1 { font-weight: 300; font-size: clamp(2rem, 7.5vw, 2.5rem); line-height: 1.08; letter-spacing: .005em; text-wrap: balance; }
+.lead { margin-top: .6rem; font-size: 1.15rem; color: rgba(244,239,230,.78); }
+form { margin-top: 1.5rem; }
+label { display: block; font-family: Inter, system-ui, sans-serif; font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(244,239,230,.75); }
+input { display: block; width: 100%; margin-top: .25rem; font: inherit; font-size: 1.3rem; letter-spacing: .12em; padding: .5rem 0; border: 0; border-bottom: 1px solid rgba(244,239,230,.55); background: transparent; color: var(--ivory); caret-color: var(--gold); border-radius: 0; outline: none; }
 input:focus { border-bottom-color: var(--gold); }
 input:focus-visible { box-shadow: 0 2px 0 0 var(--gold); }
-.err { margin-top: .9rem; font-size: 1.05rem; color: var(--espresso); }
-button { display: block; width: 100%; margin-top: 1.6rem; font-family: Inter, system-ui, sans-serif; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; padding: 1rem; border: 1px solid var(--espresso); background: var(--espresso); color: var(--ivory); cursor: pointer; border-radius: 0; transition: background .25s, color .25s; }
-button:hover { background: transparent; color: var(--espresso); }
+.err { margin-top: .8rem; font-size: 1.05rem; color: var(--ivory); }
+button { display: block; width: 100%; margin-top: 1.3rem; font-family: Inter, system-ui, sans-serif; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; padding: 1rem; border: 1px solid var(--ivory); background: var(--ivory); color: var(--espresso); cursor: pointer; border-radius: 0; transition: background .25s, color .25s; }
+button:hover { background: transparent; color: var(--ivory); }
 button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-footer { padding: 1.5rem 16px 2rem; text-align: center; font-family: Inter, system-ui, sans-serif; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--taupe-2); }
+footer { margin-top: 1.5rem; text-align: center; font-family: Inter, system-ui, sans-serif; font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(244,239,230,.62); }
 footer span { display: inline-block; margin: 0 .6rem; }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .photo img, .gate { animation: none; } }
+@media (min-width: 60rem) {
+  body { background: var(--ivory); color: var(--ink); }
+  .shell { display: grid; grid-template-columns: minmax(26rem, 46%) 1fr; }
+  .photo { position: sticky; top: 0; inset: auto; height: 100svh; }
+  .photo img { object-position: 50% 25%; }
+  .photo::after { background: linear-gradient(90deg, rgba(42,31,25,0) 85%, rgba(42,31,25,.08) 100%); }
+  .panel { min-height: 100svh; justify-content: center; align-items: center; padding: 5rem clamp(2rem, 6vw, 7rem) 6rem; }
+  .logo { width: 220px; }
+  .logo--light { display: none; }
+  .logo--dark { display: block; }
+  .gate { margin-top: 2.2rem; padding-top: 0; width: 100%; max-width: 26rem; text-align: center; }
+  .rule { margin: 0 auto 1.4rem; }
+  h1 { font-size: 2.15rem; }
+  .lead { color: var(--taupe-2); }
+  form { text-align: left; margin-top: 1.9rem; }
+  label { color: var(--taupe-2); }
+  input { border-bottom-color: var(--taupe); color: var(--ink); }
+  .err { color: var(--espresso); }
+  button { background: var(--espresso); color: var(--ivory); border-color: var(--espresso); }
+  button:hover { background: transparent; color: var(--espresso); }
+  footer { position: absolute; left: 0; right: 0; bottom: 1.8rem; margin: 0; color: var(--taupe-2); }
+}
 </style>
 </head>
 <body>
-<main>
-  <div class="gate">
-    <img class="logo" src="/assets/maison-maria-lockup.svg" alt="Maison Maria" width="200" height="70">
-    <div class="rule" aria-hidden="true"></div>
-    <h1>Forhåndsvisning for inviterte.</h1>
-    <p class="lead">Skriv inn passordet du har fått.</p>
-    <form method="post" action="/api/adgang" autocomplete="off">
-      <input type="hidden" name="next" value="${esc(nextPath)}">
-      <label for="passord">Passord</label>
-      <input id="passord" name="passord" type="password" autocomplete="current-password" enterkeyhint="go" required autofocus spellcheck="false" autocapitalize="off">
-      ${message}
-      <button type="submit">Åpne</button>
-    </form>
-  </div>
-</main>
-<footer><span>Fabriqué en France</span><span>Maison Maria · 2027</span></footer>
+<div class="shell">
+  <div class="photo" aria-hidden="true"><img src="/assets/img/maria-sol.jpg" alt="" width="720" height="1280"></div>
+  <main class="panel">
+    <img class="logo logo--light" src="/assets/maison-maria-lockup-light.svg" alt="Maison Maria" width="150" height="52">
+    <img class="logo logo--dark" src="/assets/maison-maria-lockup.svg" alt="Maison Maria" width="220" height="77">
+    <div class="gate">
+      <div class="rule" aria-hidden="true"></div>
+      <h1>Forhåndsvisning for inviterte.</h1>
+      <p class="lead">Skriv inn passordet du har fått.</p>
+      <form method="post" action="/api/adgang" autocomplete="off">
+        <input type="hidden" name="next" value="${esc(nextPath)}">
+        <label for="passord">Passord</label>
+        <input id="passord" name="passord" type="password" autocomplete="current-password" enterkeyhint="go" required spellcheck="false" autocapitalize="off">
+        ${message}
+        <button type="submit">Åpne</button>
+      </form>
+    </div>
+    <footer><span>Fabriqué en France</span><span>Maison Maria · 2027</span></footer>
+  </main>
+</div>
+<script>if (matchMedia('(min-width: 60rem)').matches) { var f = document.getElementById('passord'); if (f) f.focus(); }</script>
 </body>
 </html>`;
 }

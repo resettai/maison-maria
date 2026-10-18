@@ -45,7 +45,7 @@ function layout({ title, desc, body, current }) {
 <a class="skip" href="#main">Skip to content</a>
 <header class="hdr">
   <div class="wrap hdr-in">
-    <a class="hdr-brand" href="/" aria-label="Maison Maria – home"><img src="/assets/maria-wordmark-compact.svg" alt="" width="837" height="328"></a>
+    <a class="hdr-brand" href="/" aria-label="Maison Maria – home"><img src="/assets/maria-wordmark-compact.svg" alt="" width="494" height="121"></a>
     <nav class="nav ui" aria-label="Menu">${nav}</nav>
     <div class="hdr-tools ui">
       <button type="button" class="cart-btn" data-open-cart aria-label="Open cart">Cart <span class="count" data-cart-count data-zero="true">0</span></button>
@@ -59,7 +59,7 @@ ${body}
 </main>
 <footer class="ftr">
   <div class="wrap ftr-in">
-    <div><img src="/assets/maison-maria-lockup-inverse.svg" alt="Maison Maria" width="837" height="328"><p class="ftr-note" style="margin-top:1rem">Sun care as skincare. Formulated and made in France.</p></div>
+    <div><img src="/assets/maison-maria-lockup-light.svg" alt="Maison Maria" width="1191" height="123"><p class="ftr-note" style="margin-top:1rem">Sun care as skincare. Formulated and made in France.</p></div>
     <div><h4>Shop</h4><a href="/shop#sun">Sun care</a><a href="/shop#skin">Skincare</a><a href="/shop#sets">Sets</a><a href="/vanity">Vanity Collection</a><a href="/cart">Cart</a></div>
     <div><h4>Learn</h4><a href="/guide">Sun guide</a><a href="/journal">Journal</a><a href="/faq">FAQ</a><a href="/maison#standards">Testing and standards</a></div>
     <div><h4>Maison</h4><a href="/maison">About the house</a><a href="/maison#france">Fabriqué en France</a><a href="/contact">Contact</a><a href="/shipping">Shipping and returns</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
@@ -573,7 +573,7 @@ const pages = {
   'journal.html': journal, 'faq.html': faqPage, 'shipping.html': shipping, 'privacy.html': privacy, 'terms.html': terms,
   'contact.html': contact, 'cart.html': cart, '404.html': notFound
 };
-const ASSET_V = 'v=4';
+const ASSET_V = 'v=5';
 const bust = html => html.replace(/(src|href)="\/assets\/([^"?]+)"/g, (m, a, f) => `${a}="/assets/${f}?${ASSET_V}"`);
 for (const [f, html] of Object.entries(pages)) fs.writeFileSync(path.join(OUT, f), bust(html));
 for (const p of P) fs.writeFileSync(path.join(OUT, 'product', `${p.slug}.html`), bust(productPage(p)));

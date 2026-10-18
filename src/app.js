@@ -7,7 +7,7 @@
 
   function read() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
   function write(items) { try { localStorage.setItem(KEY, JSON.stringify(items)); } catch (e) { /* private mode */ } }
-  function nok(n) { return 'NOK ' + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+  function nok(n) { return '€' + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   function lineKey(slug, variant) { return slug + (variant ? '::' + variant : ''); }
 
   var items = read();

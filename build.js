@@ -9,7 +9,7 @@ const C = require('./data/content.js');
 const P = data.products;
 const bySlug = Object.fromEntries(P.map(p => [p.slug, p]));
 const byNeed = Object.fromEntries(data.needs.map(n => [n.id, n]));
-const nok = n => 'NOK ' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+const nok = n => '€' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 const catName = id => data.categories.find(c => c.id === id).name;
 const WIDE = ['collection', 'set-morning', 'set-complete', 'vanity-king', 'vanity-medium', 'vanity-mini', 'nord', 'atelier'];
@@ -59,19 +59,19 @@ ${body}
 </main>
 <footer class="ftr">
   <div class="wrap ftr-in">
-    <div><img src="/assets/maison-maria-lockup-inverse.svg" alt="Maison Maria" width="640" height="420"><p class="ftr-note" style="margin-top:1rem">Sun care as skincare. Formulated and made in France. Ålesund, Norway.</p></div>
+    <div><img src="/assets/maison-maria-lockup-inverse.svg" alt="Maison Maria" width="640" height="420"><p class="ftr-note" style="margin-top:1rem">Sun care as skincare. Formulated and made in France.</p></div>
     <div><h4>Shop</h4><a href="/shop#sun">Sun care</a><a href="/shop#skin">Skincare</a><a href="/shop#sets">Sets</a><a href="/vanity">Vanity Collection</a><a href="/cart">Cart</a></div>
     <div><h4>Learn</h4><a href="/guide">Sun guide</a><a href="/journal">Journal</a><a href="/faq">FAQ</a><a href="/maison#standards">Testing and standards</a></div>
     <div><h4>Maison</h4><a href="/maison">About the house</a><a href="/maison#france">Fabriqué en France</a><a href="/contact">Contact</a><a href="/shipping">Shipping and returns</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
   </div>
-  <div class="wrap"><p class="ftr-note ftr-legal">Preview. Payment is not enabled. Product images are AI-generated mockups and labelled as such. Product information, prices, ingredients and claims are provisional until approved and notified. MARIA Skincare AS (in formation), 2026.</p></div>
+  <div class="wrap"><p class="ftr-note ftr-legal">Preview. Payment is not enabled. Product images are AI-generated mockups and labelled as such. Product information, prices, ingredients and claims are provisional until approved and notified. Prices in euros; local currency, taxes and duties are shown at checkout. MARIA Skincare (in formation), 2026.</p></div>
 </footer>
 <div class="drawer-bg" data-close-cart></div>
 <aside class="drawer" aria-label="Cart">
   <div class="drawer-h"><h2>Cart</h2><button type="button" class="drawer-x" data-close-cart>Close</button></div>
   <div class="drawer-body" data-cart-lines></div>
   <div class="drawer-f">
-    <div class="tot"><span>Total</span><strong data-cart-total>NOK 0</strong></div>
+    <div class="tot"><span>Total</span><strong data-cart-total>€0</strong></div>
     <a class="btn" href="/cart">View cart</a>
     <button type="button" class="btn" disabled aria-disabled="true" data-checkout>Checkout</button>
     <p class="pay-note">Payment will be enabled once the payment solution and product information are approved. Shipping and VAT are calculated at checkout.</p>
@@ -83,7 +83,7 @@ ${body}
 </html>`;
 }
 
-function card(p, wide = isWide(p.image)) {
+function card(p, wide = isWide(p.image) || p.category === 'vanity') {
   return `<a class="card${wide ? ' card--wide' : ''}" href="/product/${p.slug}">
   <div class="card-img"><img src="/assets/img/${p.image}-sm.jpg" alt="${esc(p.alt)}" loading="lazy" width="700" height="${wide ? 467 : 933}"></div>
   <h3>${p.name}${p.sub ? `<span>${esc(p.sub)}</span>` : ''}</h3>
@@ -99,11 +99,11 @@ function needChips(active) {
 }
 
 const facts = dark => `<dl class="facts${dark ? ' facts--dark' : ''}">
-  <div><dt>6–7</dt><dd>midday UV index on a clear June day in Oslo. The same as a spring day in Rome.</dd></div>
-  <div><dt>80%</dt><dd>of UV is reflected by fresh snow. A March day on the mountain can match June in the city.</dd></div>
+  <div><dt>3</dt><dd>is the UV index at which the WHO says protection starts. Paris reaches it in March, London in April, Sydney never drops below it.</dd></div>
+  <div><dt>80%</dt><dd>of UV is reflected by fresh snow, and up to a quarter by water and sand. The light reaches you from below as well as above.</dd></div>
   <div><dt>50+</dt><dd>is the highest protection the EU lets us print. Every MARIA fluid carries it, with UVA protection of at least a third of the SPF.</dd></div>
 </dl>
-<p class="source${dark ? ' source--dark' : ''}">Sources: Norwegian Radiation and Nuclear Safety Authority (DSA); World Health Organization, Global Solar UV Index. <a href="/journal/melanoma-in-norway">The health numbers, for those who want them</a>.</p>`;
+<p class="source${dark ? ' source--dark' : ''}">Source: World Health Organization, Global Solar UV Index. <a href="/journal/melanoma-in-numbers">The health numbers, for those who want them</a>.</p>`;
 
 const STANDARDS = `<ul class="std">
   <li><strong>SPF in vivo</strong><span>ISO 24444 at an independent laboratory. 50+ means a measured SPF of at least 60.</span></li>
@@ -122,15 +122,15 @@ const skin = P.filter(p => p.category === 'skin');
 const sets = P.filter(p => p.category === 'sets');
 const home = layout({
   title: 'Maison Maria – sun care as skincare, made in France',
-  desc: 'MARIA: luxury sun care and skincare from Norway, formulated and made in France. SPF 50+ fluids, serums, the Vanity Collection and more.',
+  desc: 'MARIA: luxury sun care and skincare, formulated and made in France. SPF 50+ fluids, serums, the Vanity Collection and more.',
   current: '/',
   body: `
 <section class="hero" aria-labelledby="h1">
-  <div class="hero-img"><img src="/assets/img/collection.jpg" alt="The MARIA collection on travertine in Nordic daylight (AI-generated mockup)" width="1536" height="1024" fetchpriority="high"><span class="hero-credit">AI-generated mockup</span></div>
+  <div class="hero-img"><img src="/assets/img/collection.jpg" alt="The MARIA collection on travertine in daylight (AI-generated mockup)" width="1536" height="1024" fetchpriority="high"><span class="hero-credit">AI-generated mockup</span></div>
   <div class="hero-in">
     <span class="ui">Fabriqué en France · launching June 2027</span>
     <h1 id="h1">Take care of the skin you have.</h1>
-    <p>Sun protection as skincare. SPF 50+ every day, made in France for Nordic light.</p>
+    <p>Sun protection as skincare. SPF 50+ every day, made in France for every kind of light.</p>
     <a class="btn" href="/shop">See the collection</a>
   </div>
 </section>
@@ -144,7 +144,7 @@ const home = layout({
 
 <section class="sec" aria-labelledby="h-sun">
   <div class="wrap">
-    <div class="sec-head"><span class="ui">Sun care</span><h2 id="h-sun">Eight ways to wear SPF.</h2><p>Face, lips, hands and body. Fragrance-free, vegan and non-comedogenic, with EU-approved UV filters only.</p></div>
+    <div class="sec-head"><span class="ui">Sun care</span><h2 id="h-sun">Thirteen ways to wear SPF.</h2><p>Face, lips, hands, hair and body. Fragrance-free, vegan and non-comedogenic, with EU-approved UV filters only.</p></div>
     ${grid(sun, 'grid--4')}
   </div>
 </section>
@@ -163,23 +163,33 @@ const home = layout({
   </div>
 </section>
 
+<section class="band" style="background:var(--ivory-2)" aria-labelledby="h-first">
+  <div class="band-img"><img src="/assets/img/set-first-routine.jpg" alt="${esc(bySlug['first-routine'].alt)}" loading="lazy" width="1536" height="1024"></div>
+  <div class="band-txt">
+    <span class="ui" style="color:var(--gold)">First routine</span>
+    <h2 id="h-first">Fourteen is early enough. Three steps are plenty.</h2>
+    <p>Clear Cleanser, Gel Moisturiser and Matte Fluid SPF 50+, with Blemish Patches for the days something shows up. Oil-free, fragrance-free, tested on teen skin, and priced so the first routine is under €120.</p>
+    <a class="btn btn--ghost" href="/for/first-routine">See the first routine</a>
+  </div>
+</section>
+
 <section class="band band--dark" aria-labelledby="h-vanity">
   <div class="band-img"><img src="/assets/img/vanity-king.jpg" alt="${esc(bySlug['vanity-king-size'].alt)}" loading="lazy" width="1280" height="960"></div>
   <div class="band-txt">
     <span class="ui" style="color:var(--gold)">Vanity Collection</span>
-    <h2 id="h-vanity">The whole routine, packed in espresso and gold.</h2>
-    <p>Three sizes: King Size for the bathroom, Medium for travel, Mini for the handbag. Vegan leather, champagne-gold hardware, and the products packed and ready.</p>
+    <h2 id="h-vanity">Every case opens to noon.</h2>
+    <p>The Vanity Collection carries a daylight mirror in every size: 5,000 K, CRI 97, the light you will be seen in. King Size for the bathroom, Medium for travel, Mini with The Compact for the handbag. Espresso vegan leather, champagne gold, and the routine packed and ready.</p>
     <a class="btn" href="/vanity">See the Vanity Collection</a>
   </div>
 </section>
 
 <section class="strip" aria-labelledby="h-soleil">
-  <img src="/assets/img/nord.jpg" alt="Low sun over a Norwegian fjord (AI-generated illustration)" loading="lazy" width="1536" height="1024">
-  <div class="strip-txt"><span class="ui">Soleil du Nord</span><h2 id="h-soleil">The light sits low here. It still counts.</h2></div>
+  <img src="/assets/img/nord.jpg" alt="Low sun over still water (AI-generated illustration)" loading="lazy" width="1536" height="1024">
+  <div class="strip-txt"><span class="ui">Light</span><h2 id="h-soleil">Wherever the light finds you.</h2></div>
 </section>
 <section class="sec" style="background:var(--espresso);color:var(--ivory)">
   <div class="wrap">
-    <div class="sec-head"><h2 style="color:var(--ivory)">Northern light, taken seriously.</h2><p style="color:#D9CFC2">Low sun, long days, snow and water. Norway gets more UV than it feels, and MARIA is formulated for exactly that light.</p></div>
+    <div class="sec-head"><h2 style="color:var(--ivory)">Light, taken seriously.</h2><p style="color:#D9CFC2">A commute in Paris, a terrace in Dubai, a ski week in the Alps, a winter in Sydney. The light is different everywhere and the skin is the same. MARIA is formulated for all of it.</p></div>
     ${facts(true)}
     <p style="margin-top:2rem"><a class="btn btn--ghost btn--light" href="/guide">Read the sun guide</a></p>
   </div>
@@ -204,7 +214,7 @@ const home = layout({
 
 <section class="sec" style="background:var(--ivory-2)" aria-labelledby="h-journal">
   <div class="wrap">
-    <div class="sec-head"><span class="ui">Journal</span><h2 id="h-journal">Notes on sun, skin and the north.</h2></div>
+    <div class="sec-head"><span class="ui">Journal</span><h2 id="h-journal">Notes on sun, skin and light.</h2></div>
     <div class="grid">${C.journal.slice(0, 3).map(journalCard).join('')}</div>
     <p style="margin-top:2rem"><a class="btn btn--ghost" href="/journal">All articles</a></p>
   </div>
@@ -261,21 +271,38 @@ function needPage(n) {
 
 // ---------- vanity ----------
 const V = P.filter(p => p.category === 'vanity');
+const LIGHT = { 'vanity-king-size': 'Noon ring light, 3 settings', 'vanity-medium': 'Noon bar, 2 steps', 'vanity-mini': 'The Compact, included' };
 const vanity = layout({
   title: 'Vanity Collection – Maison Maria',
   desc: 'Maison Maria Vanity Collection: King Size, Medium and Mini in espresso vegan leather with gold.',
   current: '/vanity',
   body: `<section class="band band--dark" aria-labelledby="hv">
   <div class="band-img"><img src="/assets/img/vanity-king.jpg" alt="${esc(bySlug['vanity-king-size'].alt)}" width="1280" height="960" fetchpriority="high"></div>
-  <div class="band-txt"><span class="ui" style="color:var(--gold)">Maison Maria</span><h1 id="hv" style="font-size:clamp(2.4rem,5vw,3.6rem)">Vanity Collection</h1><p>Three sizes, one language: espresso pebbled vegan leather, champagne-gold hardware, ivory lining. Every case comes with the products packed and ready.</p><p class="ai-note" style="color:#B5A999">Images are AI-generated mockups</p></div>
+  <div class="band-txt"><span class="ui" style="color:var(--gold)">Maison Maria</span><h1 id="hv" style="font-size:clamp(2.4rem,5vw,3.6rem)">Vanity Collection</h1><p>Three sizes and a compact, one idea: a mirror lit to midday daylight in every one, so skincare and SPF are checked in the light they will be seen in. Espresso pebbled vegan leather, champagne-gold hardware, ivory lining, and the products packed and ready.</p><p class="ai-note" style="color:#B5A999">Images are AI-generated mockups</p></div>
 </section>
 <section class="sec"><div class="wrap">
   ${grid(V)}
   <h2 style="font-size:2rem;margin-top:4rem">Compare</h2>
   <div class="tbl-wrap"><table class="tbl">
-    <thead><tr><th>Model</th><th>Dimensions</th><th>Contents</th><th>Price</th></tr></thead>
-    <tbody>${V.map(p => `<tr><td><a href="/product/${p.slug}">${p.name}</a></td><td>${p.dims}</td><td>${[...new Set(p.set)].map(s => { const n = p.set.filter(x => x === s).length; return bySlug[s].name + (bySlug[s].sub ? ' ' + bySlug[s].sub : '') + (n > 1 ? ' × ' + n : ''); }).join(', ')}</td><td style="white-space:nowrap">${nok(p.price)}</td></tr>`).join('')}</tbody>
+    <thead><tr><th>Model</th><th>Dimensions</th><th>Light</th><th>Contents</th><th>Price</th></tr></thead>
+    <tbody>${V.filter(p => p.set).map(p => `<tr><td><a href="/product/${p.slug}">${p.name}</a></td><td>${p.dims}</td><td>${LIGHT[p.slug]}</td><td>${[...new Set(p.set)].map(s => { const n = p.set.filter(x => x === s).length; return bySlug[s].name + (bySlug[s].sub ? ' ' + bySlug[s].sub : '') + (n > 1 ? ' × ' + n : ''); }).join(', ')}</td><td style="white-space:nowrap">${nok(p.price)}</td></tr>`).join('')}</tbody>
   </table></div>
+  <h2 style="font-size:2rem;margin-top:4rem">Noon, in every case.</h2>
+  <div class="cols3">
+    <div><h3 class="h3">Why 5,000 K</h3><p>Midday daylight sits around 5,000 kelvin. Bathroom bulbs sit at 2,700. Tint, SPF and make-up checked under one look different under the other, which is why so much looks right indoors and wrong at the door. The Noon setting shows you what the sun will see.</p></div>
+    <div><h3 class="h3">Why CRI 97</h3><p>Colour rendering index measures how truthfully a light shows colour. Most LED bulbs score 80, which flattens skin tones and reddens nothing. The Noon lights are specified at 97, close to daylight, so a shade match made in the case holds outside it.</p></div>
+    <div><h3 class="h3">Built to be charged rarely</h3><p>USB-C on every piece, 30 hours in the King Size, 20 in the Medium, 10 in The Compact, with auto-off. The LEDs are rated for 30,000 hours; the batteries are replaceable by us. Nothing is glued shut.</p></div>
+  </div>
+  <div class="tbl-wrap"><table class="tbl">
+    <thead><tr><th>Model</th><th>Light</th><th>Colour temperatures</th><th>Brightness at 30 cm</th><th>Battery</th></tr></thead>
+    <tbody>
+      <tr><td>King Size</td><td>Frosted ring light, 56 LEDs</td><td>2,700 / 3,000 / 5,000 K</td><td>1,200 lux</td><td>2,600 mAh · 30 h · USB-C</td></tr>
+      <tr><td>Medium</td><td>Frosted light bar, 24 LEDs</td><td>5,000 K</td><td>800 lux</td><td>1,500 mAh · 20 h · USB-C</td></tr>
+      <tr><td>Mini with The Compact</td><td>Frosted ring light, 16 LEDs</td><td>5,000 K</td><td>600 lux</td><td>500 mAh · 10 h · USB-C</td></tr>
+      <tr><td>The Compact</td><td>Frosted ring light, 16 LEDs</td><td>5,000 K</td><td>600 lux</td><td>500 mAh · 10 h · USB-C</td></tr>
+    </tbody>
+  </table></div>
+  <p class="pdp-note" style="margin-top:1rem">No UV is emitted. Lights are certified as low-voltage electrical products and carry a two-year warranty. Specifications are provisional until the supplier is confirmed.</p>
   <h2 style="font-size:2rem;margin-top:4rem">The material</h2>
   <div class="cols2">
     <p>The cases are made from a solvent-free polyurethane on a recycled polyester backing, embossed with a fine pebble grain and edge-painted in espresso. It was chosen over leather to keep the collection vegan, and over cheaper vegan options because it does not crack at the corners after a winter in a handbag.</p>
@@ -312,14 +339,14 @@ function productPage(p) {
     <p class="pdp-short">${esc(p.short)}</p>
     <ul class="pdp-claims">${p.claims.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
     ${skinChips}
-    <div class="pdp-buy">${variant}<button type="button" class="btn" data-add="${p.slug}">Add to cart</button><p class="pdp-note">Preview: the cart works, payment is enabled at launch. Free shipping in Norway over NOK 800.</p></div>
+    <div class="pdp-buy">${variant}<button type="button" class="btn" data-add="${p.slug}">Add to cart</button><p class="pdp-note">Preview: the cart works, payment is enabled at launch. Free shipping in the EU over €90.</p></div>
     <div style="margin-top:2rem">
       <details class="acc" open><summary>How to use</summary><p>${esc(p.use)}</p></details>
       ${ingredients}
       ${freeFrom}
       ${tests}
       <details class="acc"><summary>Details</summary><ul>${p.details.map(d => `<li>${esc(d)}</li>`).join('')}</ul></details>
-      <details class="acc"><summary>Delivery and returns</summary><p>Ships within one working day from Oslo. Two to four working days in Norway, three to seven in the EU and UK. Free shipping in Norway over NOK 800. 30-day returns on unopened products. <a href="/shipping">Full terms</a>.</p></details>
+      <details class="acc"><summary>Delivery and returns</summary><p>Ships within one working day from our European warehouse. Two to five working days in Europe, four to eight worldwide, duties and taxes shown at checkout. Free shipping in the EU over €90. 30-day returns on unopened products. <a href="/shipping">Full terms</a>.</p></details>
     </div>
     ${setBlock}
     ${faq}
@@ -332,39 +359,40 @@ function productPage(p) {
 // ---------- maison ----------
 const maison = layout({
   title: 'Maison – Maison Maria',
-  desc: 'About Maison Maria: a Norwegian sun-care house, formulated and made in France. Principles, production, testing and packaging.',
+  desc: 'About Maison Maria: a sun-care house formulated and made in France. Principles, production, testing and packaging.',
   current: '/maison',
   body: `<section class="band" aria-labelledby="hm">
   <div class="band-img"><img src="/assets/img/collection.jpg" alt="${esc(bySlug['starter-set'].alt)}" width="1536" height="1024" fetchpriority="high"></div>
-  <div class="band-txt"><span class="ui" style="color:var(--gold)">Maison Maria</span><h1 id="hm" style="font-size:clamp(2.4rem,5vw,3.6rem)">A Norwegian sun-care house, made in France.</h1><p>MARIA is built around one idea: that protection should be the easiest step in the routine, not the one you skip. Sun care formulated like skincare, skincare formulated around the sun, and no claims we cannot document.</p></div>
+  <div class="band-txt"><span class="ui" style="color:var(--gold)">Maison Maria</span><h1 id="hm" style="font-size:clamp(2.4rem,5vw,3.6rem)">A sun-care house, made in France.</h1><p>MARIA is built around one idea: that protection should be the easiest step in the routine, not the one you skip. Sun care formulated like skincare, skincare formulated around the sun, and no claims we cannot document.</p></div>
 </section>
 
 <section class="sec" aria-labelledby="h-pr"><div class="wrap">
-  <div class="sec-head"><span class="ui">Principles</span><h2 id="h-pr">Five things we hold to.</h2></div>
+  <div class="sec-head"><span class="ui">Principles</span><h2 id="h-pr">Six things we hold to.</h2></div>
   <ol class="principles">
     <li><h3>The highest category, every day</h3><p>Every face fluid is 50+, the top of the EU scale, with UVA protection above the legal minimum. The number is the same on the lightest texture and the tinted one.</p></li>
     <li><h3>Filters chosen, not inherited</h3><p>Four modern photostable filters and zinc oxide. No octocrylene, homosalate, oxybenzone or octinoxate, because 50+ does not need them.</p></li>
     <li><h3>Nothing that does not earn its place</h3><p>No fragrance, no colourants beyond the iron oxides that give a tint, no alcohol that dries. If an ingredient is in the bottle, it is on the product page with its reason.</p></li>
-    <li><h3>Tested where it will be worn</h3><p>ISO tests at independent laboratories in France, and a 28-day use panel in Norway between March and June, when the light changes fastest.</p></li>
-    <li><h3>Made to be kept</h3><p>Frosted glass, airless pumps, refills planned from the second year. Boxes in FSC board printed in Norway. Vegan throughout.</p></li>
+    <li><h3>Tested where it will be worn</h3><p>ISO tests at independent laboratories in France, and 28-day use panels in three climates: a northern spring, a Mediterranean summer and an alpine winter.</p></li>
+    <li><h3>Made to be kept</h3><p>Frosted glass, airless pumps, refills planned from the second year. Boxes in FSC board, printed in Europe. Vegan throughout.</p></li>
+    <li><h3>Light you can trust</h3><p>Every Vanity case opens to a mirror lit to midday daylight, 5,000 K at CRI 97. Skincare and SPF are checked in the light they will be seen in, not under a bathroom bulb.</p></li>
   </ol>
 </div></section>
 
 <section class="sec" style="background:var(--espresso);color:var(--ivory)"><div class="wrap">
-  <div class="sec-head"><span class="ui" style="color:var(--gold)">Soleil du Nord</span><h2 style="color:var(--ivory)">Why a Norwegian sun-care brand.</h2><p style="color:#D9CFC2">Norway gets more sun than it feels: low light that reaches the face, long days, snow and water that reflect it. Protection used every day is the most effective habit there is, and a daily habit needs a product people want to wear.</p></div>
+  <div class="sec-head"><span class="ui" style="color:var(--gold)">Light</span><h2 style="color:var(--ivory)">Why a sun-care house.</h2><p style="color:#D9CFC2">Most skin gets more sun than it feels: through car windows, on a lunch break, off snow and water. Protection used every day is the most effective habit there is, and a daily habit needs a product people want to wear.</p></div>
   <div style="color:var(--ivory)">${facts(true)}</div>
 </div></section>
 
 <section class="band band--rev" id="france" aria-labelledby="hf">
   <div class="band-img"><img src="/assets/img/atelier.jpg" alt="Laboratory bench with glassware (AI-generated illustration)" loading="lazy" width="953" height="1024"></div>
-  <div class="band-txt"><span class="ui" style="color:var(--gold)">Fabriqué en France</span><h2 id="hf">Château-Gaillard, outside Lyon.</h2><p>MARIA is formulated and made at a family-owned French house that has produced skincare and sun care since 1947, with its own laboratory measuring SPF before anything leaves the building. The factory is certified to ISO 22716 (cosmetics GMP) and approved for COSMOS.</p><p>The glass comes from a French glassworks that supplies the perfume houses. The boxes are printed in Norway. <a href="/journal/why-france">Why France, in more detail</a>.</p></div>
+  <div class="band-txt"><span class="ui" style="color:var(--gold)">Fabriqué en France</span><h2 id="hf">Château-Gaillard, outside Lyon.</h2><p>MARIA is formulated and made at a family-owned French house that has produced skincare and sun care since 1947, with its own laboratory measuring SPF before anything leaves the building. The factory is certified to ISO 22716 (cosmetics GMP) and approved for COSMOS.</p><p>The glass comes from a French glassworks that supplies the perfume houses. <a href="/journal/why-france">Why France, in more detail</a>.</p></div>
 </section>
 
 <section class="sec" id="standards" aria-labelledby="h-st"><div class="wrap">
   <div class="sec-head"><span class="ui">Testing and standards</span><h2 id="h-st">How a MARIA sunscreen is proven.</h2><p>Every sunscreen is tested at independent laboratories and notified in the EU before it is sold. These are the methods behind the numbers on the label.</p></div>
   ${STANDARDS}
   <div class="cols2" style="margin-top:3rem">
-    <div><h3 class="h3">The regulatory frame</h3><p>Cosmetics in the EU and Norway are governed by Regulation (EC) 1223/2009. Each product has a Product Information File, a Cosmetic Product Safety Report signed by a qualified assessor, and a Responsible Person who answers for it. UV filters may only be those on the regulation's positive list, at or below the permitted concentration. Sunscreen labelling follows Commission Recommendation 2006/647/EC: eight SPF categories, the UVA circle, and no claims of total or all-day protection.</p></div>
+    <div><h3 class="h3">The regulatory frame</h3><p>Cosmetics sold in Europe are governed by Regulation (EC) 1223/2009, the strictest cosmetics framework in the world, and MARIA is made to it wherever it is sold. Each product has a Product Information File, a Cosmetic Product Safety Report signed by a qualified assessor, and a Responsible Person who answers for it. UV filters may only be those on the regulation's positive list, at or below the permitted concentration. Sunscreen labelling follows Commission Recommendation 2006/647/EC: eight SPF categories, the UVA circle, and no claims of total or all-day protection.</p></div>
     <div><h3 class="h3">Skincare too</h3><p>The products without SPF go through stability testing at 25 and 40 degrees, challenge testing of the preservative system, dermatological testing under occlusion, and for the barrier products a 28-day measurement of transepidermal water loss. Results are summarised on each product page and are provisional until the final formulas are approved.</p></div>
   </div>
 </div></section>
@@ -373,13 +401,13 @@ const maison = layout({
   <div class="sec-head"><span class="ui">Packaging</span><h2 id="h-pk">Glass, board and what we left out.</h2></div>
   <div class="cols3">
     <div><h3 class="h3">Glass</h3><p>Fluids, serums and creams come in frosted glass with airless pumps or wide-mouth jars. Glass is heavier to ship than plastic and better for the filters, the vitamin C and the hand. Refill cartridges for the three most used products are planned for year two.</p></div>
-    <div><h3 class="h3">Board</h3><p>Outer boxes are FSC-certified ivory board, printed in Norway with blind embossing instead of foil. There is no cellophane, no insert and no leaflet; the product page is the leaflet.</p></div>
+    <div><h3 class="h3">Board</h3><p>Outer boxes are FSC-certified ivory board, printed in Europe with blind embossing instead of foil. There is no cellophane, no insert and no leaflet; the product page is the leaflet.</p></div>
     <div><h3 class="h3">Leather, without the animal</h3><p>The Vanity Collection is made from a solvent-free polyurethane on recycled polyester, chosen for durability over the cheaper options. Hardware is plated zinc alloy, zips are YKK.</p></div>
   </div>
 </div></section>
 
 <section class="sec" aria-labelledby="h-co"><div class="wrap">
-  <div class="sec-head"><span class="ui">Company</span><h2 id="h-co">MARIA Skincare AS</h2><p>Registered in Ålesund, Norway, in formation. Formulation and production in France, warehouse outside Oslo, delivery to Norway, the EU and the UK from June 2027.</p></div>
+  <div class="sec-head"><span class="ui">Company</span><h2 id="h-co">MARIA Skincare</h2><p>A European company in formation. Formulation and production in France, a central European warehouse, and delivery worldwide from June 2027: Europe first, then North America, the Gulf and Asia-Pacific within the year.</p></div>
   <p style="margin-top:1.5rem"><a class="btn btn--ghost" href="/contact">Contact</a></p>
 </div></section>`
 });
@@ -387,20 +415,20 @@ const maison = layout({
 // ---------- guide ----------
 const guide = layout({
   title: 'Sun guide – Maison Maria',
-  desc: 'The sun in the north, month by month: UV index, how much sunscreen to apply, what the SPF numbers mean and which MARIA product to choose.',
+  desc: 'The sun guide: UV index city by city, how much sunscreen to apply, what the SPF numbers mean and which MARIA product to choose.',
   current: '/guide',
   body: `<section class="strip strip--tall" aria-labelledby="hg">
-  <img src="/assets/img/nord.jpg" alt="Low sun over a Norwegian fjord (AI-generated illustration)" width="1536" height="1024" fetchpriority="high">
-  <div class="strip-txt"><span class="ui">Sun guide</span><h1 id="hg">Sun in the north.</h1><p>A year of UV in Norway, how much to apply, and what the numbers on the bottle mean.</p></div>
+  <img src="/assets/img/nord.jpg" alt="Low sun over still water (AI-generated illustration)" width="1536" height="1024" fetchpriority="high">
+  <div class="strip-txt"><span class="ui">Sun guide</span><h1 id="hg">Sun, wherever you are.</h1><p>The UV index city by city, how much to apply, and what the numbers on the bottle mean.</p></div>
 </section>
 
 <section class="sec" aria-labelledby="h-uv"><div class="wrap">
-  <div class="sec-head"><span class="ui">Month by month</span><h2 id="h-uv">The UV index in Norway.</h2><p>Typical clear-sky midday values. The World Health Organization recommends protection from index 3. Cloud reduces UV less than it feels; snow, water and altitude add to it.</p></div>
+  <div class="sec-head"><span class="ui">City by city</span><h2 id="h-uv">The UV index around the world.</h2><p>Typical clear-sky midday values in midwinter and midsummer. The World Health Organization recommends protection from index 3. Cloud reduces UV less than it feels; snow, water and altitude add to it.</p></div>
   <div class="tbl-wrap"><table class="tbl tbl--uv">
-    <thead><tr><th>Month</th><th>Southern Norway</th><th>Northern Norway</th><th>What it means</th></tr></thead>
+    <thead><tr><th>City</th><th>Winter midday</th><th>Summer midday</th><th>What it means</th></tr></thead>
     <tbody>${C.guide.uv.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('')}</tbody>
   </table></div>
-  <p class="source">Sources: Norwegian Radiation and Nuclear Safety Authority (DSA) UV forecasts; World Health Organization, Global Solar UV Index. Approximate values for Oslo and Tromsø.</p>
+  <p class="source">Sources: World Health Organization, Global Solar UV Index; national meteorological services. Approximate clear-sky values; cloud, altitude and ozone move them day to day.</p>
 </div></section>
 
 <section class="sec" style="background:var(--ivory-2)" aria-labelledby="h-amt"><div class="wrap">
@@ -444,10 +472,10 @@ const guide = layout({
 // ---------- journal ----------
 const journal = layout({
   title: 'Journal – Maison Maria',
-  desc: 'Notes on sun, skin and the north: SPF explained, how we chose the filters, melanoma in Norway, why France.',
+  desc: 'Notes on sun, skin and light: SPF explained, how we chose the filters, melanoma in numbers, why France.',
   current: '/journal',
   body: `<section class="sec" style="padding-top:3rem"><div class="wrap">
-  <div class="sec-head"><span class="ui">Journal</span><h1 style="font-size:clamp(2.4rem,5vw,3.6rem)">Notes on sun, skin and the north.</h1><p>What we learned building a sunscreen for a country with long winters, written down so you do not have to take our word for it.</p></div>
+  <div class="sec-head"><span class="ui">Journal</span><h1 style="font-size:clamp(2.4rem,5vw,3.6rem)">Notes on sun, skin and light.</h1><p>What we learned building a sunscreen people would actually wear every day, written down so you do not have to take our word for it.</p></div>
   <div class="grid" style="margin-top:3rem">${C.journal.map(journalCard).join('')}</div>
 </div></section>`
 });
@@ -499,7 +527,7 @@ const contact = layout({
   desc: 'Contact Maison Maria: customer care, press, wholesale.',
   current: '',
   body: `<section class="sec" style="padding-top:3rem"><div class="wrap">
-  <div class="sec-head"><span class="ui">Contact</span><h1 style="font-size:clamp(2.4rem,5vw,3.6rem)">Write to us.</h1><p>We answer within one working day, in English or Norwegian.</p></div>
+  <div class="sec-head"><span class="ui">Contact</span><h1 style="font-size:clamp(2.4rem,5vw,3.6rem)">Write to us.</h1><p>We answer within one working day, in English or French.</p></div>
   <div class="cols3" style="margin-top:2.5rem">
     <div><h3 class="h3">Customer care</h3><p><a href="mailto:care@maisonmaria.no">care@maisonmaria.no</a><br>Orders, returns, product advice.</p></div>
     <div><h3 class="h3">Press</h3><p><a href="mailto:press@maisonmaria.no">press@maisonmaria.no</a><br>Images, samples, interviews.</p></div>
@@ -513,7 +541,7 @@ const contact = layout({
     <p class="pdp-note" style="margin-top:.8rem">Preview. Nothing is sent or stored. Email addresses are activated at launch.</p>
   </form>
   <p id="c-confirm" class="quote" hidden></p>
-  <p style="margin-top:3rem" class="pdp-note">MARIA Skincare AS (in formation) · Ålesund, Norway</p>
+  <p style="margin-top:3rem" class="pdp-note">MARIA Skincare (company in formation) · Europe</p>
 </div></section>`
 });
 
@@ -526,7 +554,7 @@ const cart = layout({
   <h1>Cart</h1>
   <div data-cart-lines style="margin-top:1.5rem"></div>
   <div class="cart-sum">
-    <div class="tot"><span>Total</span><strong data-cart-total>NOK 0</strong></div>
+    <div class="tot"><span>Total</span><strong data-cart-total>€0</strong></div>
     <button type="button" class="btn" disabled aria-disabled="true" data-checkout>Checkout</button>
     <p class="pay-note">Payment will be enabled once the payment solution and product information are approved. The cart is stored only in this browser.</p>
     <a class="btn btn--ghost" href="/shop">Continue shopping</a>

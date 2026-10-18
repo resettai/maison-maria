@@ -2,7 +2,7 @@
 
 Preview web shop for MARIA – luxury sun care and skincare from Norway, made in France. English only.
 
-- `data/products.json` – catalogue: 21 products in four families (sun care, skincare, sets, Vanity Collection) with key ingredients, testing, FAQ and pairings; `needs` drives the "shop by need" pages
+- `data/products.json` – catalogue: 33 products in four families (sun care, skincare, sets, Vanity Collection with the Noon light) with key ingredients, testing, FAQ and pairings; `needs` drives the "shop by need" pages
 - `data/content.js` – journal articles, sun guide tables, FAQ, shipping, privacy and terms
 - `src/` – styles and cart script
 - `build.js` – generates the static site into `public/` (`npm run build`): home, shop, /for/<need>, /product/<slug>, vanity, maison, guide, journal + articles, faq, shipping, contact, privacy, terms, cart, 404

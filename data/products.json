@@ -1,182 +1,539 @@
 {
   "currency": "NOK",
   "categories": [
-    {
-      "id": "solpleie",
-      "name": "Solpleie",
-      "blurb": "SPF 50+ som føles som hudpleie."
-    },
-    {
-      "id": "hudpleie",
-      "name": "Hudpleie",
-      "blurb": "Det som kommer før og etter solen."
-    },
-    {
-      "id": "vanity",
-      "name": "Vanity Collection",
-      "blurb": "Hele rutinen, pakket i espresso-skinn med gull."
-    }
+    { "id": "sun", "name": "Sun care", "blurb": "SPF for face, lips, hands and body that feels like skincare." },
+    { "id": "skin", "name": "Skincare", "blurb": "What comes before the sun, and what repairs after it." },
+    { "id": "sets", "name": "Sets", "blurb": "Routines put together, priced below the sum of the parts." },
+    { "id": "vanity", "name": "Vanity Collection", "blurb": "The routine, packed in espresso leather with gold." }
+  ],
+  "needs": [
+    { "id": "everyday", "name": "Every day", "blurb": "The 365-day protection, from the first SPF of the morning to the hands on the steering wheel.", "products": ["daily-fluid", "tinted-fluid", "lip-spf30", "hand-cream", "moisturiser", "antioxidant-serum"] },
+    { "id": "sensitive", "name": "Sensitive skin and pregnancy", "blurb": "Mineral filters, no fragrance, no acids. Everything here is formulated for skin that reacts.", "products": ["mineral-fluid", "cleanser", "hydrating-serum", "moisturiser", "after-sun"] },
+    { "id": "sport", "name": "Sport and outdoors", "blurb": "Very water resistant, applied without hands, reapplied without a mirror.", "products": ["sport-stick", "body-fluid", "sun-mist", "lip-spf30", "after-sun"] },
+    { "id": "makeup", "name": "With make-up", "blurb": "Protection that sits under foundation, and a mist that goes over it.", "products": ["tinted-fluid", "sun-mist", "daily-fluid"] },
+    { "id": "body", "name": "Body and hands", "blurb": "The skin that gets the most sun and the least attention.", "products": ["body-fluid", "hand-cream", "after-sun", "sport-stick"] },
+    { "id": "repair", "name": "Repair and recovery", "blurb": "For the evening after a long day outside, and for the long game.", "products": ["after-sun", "night-cream", "hydrating-serum", "toner"] }
   ],
   "products": [
     {
       "slug": "daily-fluid",
       "name": "Daily Fluid",
       "sub": "SPF 50+",
-      "category": "solpleie",
+      "category": "sun",
       "price": 695,
-      "format": "50 ml · frostet glass, airless",
-      "kicker": "Den daglige.",
-      "short": "En fluid så lett at den forsvinner i huden, med svært høy beskyttelse mot UVB og UVA. Det siste steget hver morgen, under sminke eller alene.",
-      "claims": [
-        "Svært høy beskyttelse, SPF 50+",
-        "UVA-beskyttelse på minst en tredjedel av SPF",
-        "Usynlig, uten hvit hinne",
-        "Parfymefri, ikke-komedogen, vegansk"
+      "format": "50 ml · frosted glass, airless",
+      "size": "50 ml",
+      "kicker": "The everyday one.",
+      "short": "A fluid so light it disappears into the skin, with very high protection against UVB and UVA. The last step every morning, under make-up or on its own.",
+      "claims": ["Very high protection, SPF 50+", "UVA protection of at least a third of the SPF", "Invisible, no white cast", "Fragrance-free, non-comedogenic, vegan"],
+      "use": "Apply generously as the last step of your morning routine, 15 minutes before going out. Two full pumps cover face, neck and ears. Reapply every two hours outdoors, and after sweating or swimming.",
+      "details": ["Water resistant, 40 min (ISO 16217)", "Broad-spectrum filters: Tinosorb S, Tinosorb M, Uvinul A Plus, Uvinul T150", "Niacinamide 4%, vitamin E, panthenol, glycerin", "Use within 12 months of opening"],
+      "skin": ["All skin types", "Combination and oily skin", "Under make-up"],
+      "ingredients": [
+        { "name": "Tinosorb S and Tinosorb M", "role": "Photostable broad-spectrum filters covering UVB and the whole UVA range, including long UVA." },
+        { "name": "Uvinul A Plus", "role": "A dedicated UVA filter that keeps the UVA ratio above the EU minimum through the day." },
+        { "name": "Niacinamide 4%", "role": "Supports the barrier, evens tone and calms redness after sun exposure." },
+        { "name": "Vitamin E", "role": "An antioxidant that limits the free radicals the filters do not stop." },
+        { "name": "Panthenol and glycerin", "role": "Keep the skin comfortable so the fluid is reapplied instead of avoided." }
       ],
-      "use": "Påfør rikelig som siste steg i morgenrutinen, 15 minutter før du går ut. To pumpetrykk dekker ansikt og hals. Gjenta hver andre time ved opphold ute, og etter svette eller bading.",
-      "details": [
-        "Vannresistent 40 min (ISO 16217)",
-        "Kun EU-godkjente UV-filtre: Tinosorb S/M, Uvinul A Plus, Uvinul T150",
-        "Niacinamid 4 %, vitamin E, pantenol",
-        "Holdbar 12 måneder etter åpning"
+      "free_from": ["Fragrance", "Octocrylene", "Homosalate", "Oxybenzone (benzophenone-3)", "Octinoxate", "Denatured alcohol"],
+      "tests": ["SPF in vivo to ISO 24444", "UVA-PF in vitro to ISO 24443, critical wavelength above 370 nm", "Water resistance to ISO 16217", "Dermatologically tested, non-comedogenic tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Can I wear it under foundation?", "a": "Yes. Let it settle for a minute, then apply make-up as usual. It leaves no white cast and no greasy film." },
+        { "q": "How much should I use?", "a": "Two full pumps for face, neck and ears. SPF is tested at 2 mg per square centimetre; using half the amount gives far less than half the protection." },
+        { "q": "Do I need to reapply if I work indoors?", "a": "Indoors behind glass, one morning application is usually enough. Outdoors, reapply every two hours and after sweating or swimming." }
       ],
+      "pairs": ["antioxidant-serum", "sun-mist", "cleanser"],
       "image": "daily-fluid",
-      "alt": "MARIA Daily Fluid SPF 50+ i frostet glass med espressobrun kork (AI-generert produktmockup)",
+      "alt": "MARIA Daily Fluid SPF 50+ in frosted glass with an espresso-brown cap (AI-generated product mockup)",
       "hero": true
     },
     {
       "slug": "tinted-fluid",
       "name": "Tinted Fluid",
       "sub": "SPF 50+",
-      "category": "solpleie",
+      "category": "sun",
       "price": 745,
-      "format": "50 ml · tre nyanser",
-      "kicker": "Den med farge.",
-      "short": "Samme filtre som Daily Fluid, med mineralpigmenter som jevner ut huden. Lett dekning som ser ut som hud, ikke sminke.",
-      "claims": [
-        "Svært høy beskyttelse, SPF 50+",
-        "Lett dekning med jernoksider",
-        "Tre nyanser, fra lys til dyp",
-        "Parfymefri, ikke-komedogen, vegansk"
+      "format": "50 ml · three shades",
+      "size": "50 ml",
+      "kicker": "The one with colour.",
+      "short": "The same filters as Daily Fluid, with mineral pigments that even out the skin. Light coverage that looks like skin, not make-up.",
+      "claims": ["Very high protection, SPF 50+", "Light coverage with iron oxides", "Three shades, from light to deep", "Fragrance-free, non-comedogenic, vegan"],
+      "use": "Apply as the last step in the morning, alone or under powder. Blend with fingertips from the centre of the face outwards. Mix shades if needed. Reapply every two hours outdoors.",
+      "details": ["Shades: Light, Medium, Deep", "Broad-spectrum filters: Tinosorb S, Tinosorb M, Uvinul A Plus, Uvinul T150", "Iron oxides add protection against visible light", "Use within 12 months of opening"],
+      "skin": ["All skin types", "Uneven tone and redness", "Melasma-prone skin"],
+      "ingredients": [
+        { "name": "Iron oxides", "role": "Mineral pigments that give the tint and filter part of the visible light that can darken pigmentation." },
+        { "name": "Tinosorb S and M, Uvinul A Plus, Uvinul T150", "role": "The same broad-spectrum filter system as Daily Fluid." },
+        { "name": "Niacinamide 4%", "role": "Evens tone over time and supports the barrier." },
+        { "name": "Squalane", "role": "A light, skin-identical emollient that helps the pigments blend without streaks." }
       ],
-      "use": "Påfør som siste steg om morgenen, alene eller under pudder. Bland nyanser ved behov. Gjenta hver andre time ute.",
-      "details": [
-        "Nyanser: Lys, Medium, Dyp",
-        "Kun EU-godkjente UV-filtre",
-        "Jernoksider gir ekstra beskyttelse mot synlig lys",
-        "Holdbar 12 måneder etter åpning"
+      "free_from": ["Fragrance", "Octocrylene", "Homosalate", "Oxybenzone (benzophenone-3)", "Octinoxate", "Denatured alcohol"],
+      "tests": ["SPF in vivo to ISO 24444", "UVA-PF in vitro to ISO 24443", "Dermatologically tested, non-comedogenic tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Which shade should I choose?", "a": "Light suits fair to light skin, Medium suits light to olive skin, Deep suits tan to deep skin. The coverage is sheer, so a shade slightly off still blends. Two shades can be mixed." },
+        { "q": "Does it replace foundation?", "a": "For most days, yes. It evens out tone without covering freckles. For more coverage, use it as a base under your usual foundation." }
       ],
-      "variants": {
-        "label": "Nyanse",
-        "options": [
-          "Lys",
-          "Medium",
-          "Dyp"
-        ]
-      },
+      "variants": { "label": "Shade", "options": ["Light", "Medium", "Deep"] },
+      "pairs": ["sun-mist", "cleanser", "lip-spf30"],
       "image": "tinted-fluid",
-      "alt": "MARIA Tinted Fluid SPF 50+ med tre nyanseprikker (AI-generert produktmockup)"
+      "alt": "MARIA Tinted Fluid SPF 50+ with three shade swatches (AI-generated product mockup)"
+    },
+    {
+      "slug": "mineral-fluid",
+      "name": "Mineral Fluid",
+      "sub": "SPF 50",
+      "category": "sun",
+      "price": 745,
+      "format": "50 ml · frosted glass, airless",
+      "size": "50 ml",
+      "kicker": "The gentle one.",
+      "short": "A 100 percent mineral fluid for skin that reacts: zinc oxide only, no chemical filters, no fragrance. Formulated for sensitive skin, pregnancy and the months after laser or peels.",
+      "claims": ["High protection, SPF 50, zinc oxide only", "UVA protection of at least a third of the SPF", "Sheer finish with a soft warm tint", "Fragrance-free, non-comedogenic, vegan"],
+      "use": "Shake, then apply two full pumps as the last step in the morning. Work in with fingertips; the slight tint settles within a minute. Reapply every two hours outdoors.",
+      "details": ["Non-nano zinc oxide 22%", "Soft warm tint from iron oxides to avoid a white cast", "Bisabolol, allantoin and panthenol", "Water resistant, 40 min (ISO 16217)", "Use within 12 months of opening"],
+      "skin": ["Sensitive and reactive skin", "Pregnancy and breastfeeding", "After procedures"],
+      "ingredients": [
+        { "name": "Zinc oxide 22%, non-nano", "role": "A single mineral filter that reflects and absorbs across UVB and UVA, with a long record of tolerance." },
+        { "name": "Iron oxides", "role": "A whisper of warm tint so the zinc does not leave a white cast." },
+        { "name": "Bisabolol and allantoin", "role": "Calming agents from chamomile and comfrey that keep reactive skin quiet." },
+        { "name": "Panthenol", "role": "Provitamin B5 for comfort and barrier support." }
+      ],
+      "free_from": ["Chemical UV filters", "Fragrance", "Essential oils", "Denatured alcohol", "Silicones"],
+      "tests": ["SPF in vivo to ISO 24444", "UVA-PF in vitro to ISO 24443", "Water resistance to ISO 16217", "Dermatologically tested on sensitive skin, non-comedogenic tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Why SPF 50 and not 50+?", "a": "A pure zinc formula reaches SPF 50 reliably; pushing it to 50+ would mean more zinc and a heavier texture. SPF 50 blocks about 98 percent of UVB." },
+        { "q": "Is it suitable during pregnancy?", "a": "Zinc oxide is the filter most often recommended during pregnancy. The formula contains no fragrance, no retinoids and no chemical filters. Ask your midwife or doctor if you are unsure." },
+        { "q": "Will it look white on deeper skin?", "a": "The warm tint is designed to blend on most skin tones. On deep skin a faint sheen can remain; Tinted Fluid in Deep is the alternative." }
+      ],
+      "pairs": ["hydrating-serum", "moisturiser", "after-sun"],
+      "image": "mineral-fluid",
+      "alt": "MARIA Mineral Fluid SPF 50 in frosted glass with an espresso-brown cap (AI-generated product mockup)"
     },
     {
       "slug": "sport-stick",
       "name": "Sport Stick",
       "sub": "SPF 50+",
-      "category": "solpleie",
+      "category": "sun",
       "price": 445,
-      "format": "20 g · espresso lakk med gullbånd",
-      "kicker": "Den du tar med.",
-      "short": "Påføres uten hender, over svette, på fjellet eller ved startstreken. Svært vannbestandig og liten nok til lommen.",
-      "claims": [
-        "Svært høy beskyttelse, SPF 50+",
-        "Svært vannresistent, 80 min",
-        "Svetteresistent, testet",
-        "Parfymefri, vegansk"
+      "format": "20 g · espresso lacquer with gold band",
+      "size": "20 g",
+      "kicker": "The one you take with you.",
+      "short": "Applied without hands, over sweat, on the mountain or at the start line. Very water resistant and small enough for a pocket.",
+      "claims": ["Very high protection, SPF 50+", "Very water resistant, 80 min", "Sweat resistant, tested", "Fragrance-free, vegan"],
+      "use": "Glide the stick over face, nose, ears and neck in overlapping strokes, then press in with fingertips. Reapply every two hours, and after sweating or swimming.",
+      "details": ["Hot-poured wax base with Tinosorb S, Tinosorb M and Uvinul T150", "Matte finish, no drag on the skin", "Works in cold weather and at altitude", "Use within 12 months of opening"],
+      "skin": ["All skin types", "Runners, skiers, cyclists", "Children from 3 years"],
+      "ingredients": [
+        { "name": "Tinosorb S, Tinosorb M, Uvinul T150", "role": "Photostable filters in a wax base that stays put under sweat." },
+        { "name": "Candelilla and carnauba wax", "role": "Plant waxes that make the stick firm in heat and glide in cold." },
+        { "name": "Shea butter", "role": "Protects wind-exposed skin on the mountain and the water." },
+        { "name": "Vitamin E", "role": "Antioxidant support during long hours outside." }
       ],
-      "use": "Dra stiften over ansikt, nese, ører og nakke. Gjenta hver andre time, og etter svette eller bading.",
-      "details": [
-        "Varmstøpt voksbase med Tinosorb S/M og Uvinul T150",
-        "Matt finish, drar ikke i huden",
-        "Holdbar 12 måneder etter åpning"
+      "free_from": ["Fragrance", "Octocrylene", "Homosalate", "Oxybenzone (benzophenone-3)", "Beeswax", "Mineral oil"],
+      "tests": ["SPF in vivo to ISO 24444", "UVA-PF in vitro to ISO 24443", "Very water resistant, 80 min, to ISO 16217", "Dermatologically tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Can I use it on my children?", "a": "Yes, from 3 years. The stick is the easiest format for small faces: no hands, no mess, no stinging eyes." },
+        { "q": "Does it work over make-up?", "a": "It is designed for bare skin and sport. Over make-up, Sun Mist SPF 30 is the better choice." },
+        { "q": "Does it melt in a pocket?", "a": "No. The wax base is formulated to stay firm to 45 degrees Celsius." }
       ],
+      "pairs": ["lip-spf30", "body-fluid", "after-sun"],
       "image": "sport-stick",
-      "alt": "MARIA Sport Stick SPF 50+ i espressobrun lakk med gullbånd (AI-generert produktmockup)"
+      "alt": "MARIA Sport Stick SPF 50+ in espresso-brown lacquer with a gold band (AI-generated product mockup)"
     },
     {
       "slug": "lip-spf30",
       "name": "Lip",
       "sub": "SPF 30",
-      "category": "solpleie",
+      "category": "sun",
       "price": 295,
-      "format": "4,5 g · espresso lakk",
-      "kicker": "Den lille.",
-      "short": "Sheasmør og candelillavoks med SPF 30. Uten smak og uten parfyme. Leppene får like mye sol som resten av ansiktet, og langt mindre beskyttelse.",
-      "claims": [
-        "Høy beskyttelse, SPF 30",
-        "UVA-beskyttelse på minst en tredjedel av SPF",
-        "Uten smak og parfyme",
-        "Vegansk"
+      "format": "4.5 g · espresso lacquer",
+      "size": "4.5 g",
+      "kicker": "The small one.",
+      "short": "Shea butter and candelilla wax with SPF 30. No flavour, no fragrance. Lips get as much sun as the rest of the face, and far less protection.",
+      "claims": ["High protection, SPF 30", "UVA protection of at least a third of the SPF", "No flavour, no fragrance", "Vegan"],
+      "use": "Apply before going out and reapply through the day, after eating and drinking. Works under and over lip colour.",
+      "details": ["Tinosorb M and Uvinul T150", "Shea butter, candelilla wax, vitamin E", "Sheer, slightly glossy finish", "Use within 12 months of opening"],
+      "skin": ["Everyone", "Dry, cracked lips", "Cold-sore-prone lips"],
+      "ingredients": [
+        { "name": "Tinosorb M and Uvinul T150", "role": "Broad-spectrum filters chosen for lips because they are not absorbed and have no taste." },
+        { "name": "Shea butter", "role": "Repairs the thin skin of the lips, which has no sebaceous glands of its own." },
+        { "name": "Candelilla wax", "role": "A plant wax that gives the balm structure and a thin protective film." },
+        { "name": "Vitamin E", "role": "Antioxidant and emollient." }
       ],
-      "use": "Påfør før du går ut, og gjenta gjennom dagen, etter mat og drikke.",
-      "details": [
-        "Tinosorb M og Uvinul T150",
-        "Sheasmør, candelillavoks, vitamin E",
-        "Holdbar 12 måneder etter åpning"
+      "free_from": ["Flavour", "Fragrance", "Beeswax", "Lanolin", "Petrolatum"],
+      "tests": ["SPF in vivo to ISO 24444", "UVA-PF in vitro to ISO 24443", "Dermatologically tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Why SPF 30 and not 50?", "a": "A lip balm is reapplied many times a day, and SPF 30 already blocks about 97 percent of UVB. Higher filter loads make a balm waxy and bitter." },
+        { "q": "Can it help against cold sores?", "a": "UV exposure is a common trigger for cold sores. Daily SPF on the lips reduces that trigger; it does not treat an outbreak." }
       ],
+      "pairs": ["sport-stick", "daily-fluid", "vanity-mini"],
       "image": "lip-spf30",
-      "alt": "MARIA Lip SPF 30 leppestift i espressobrun lakk (AI-generert produktmockup)"
+      "alt": "MARIA Lip SPF 30 balm in espresso-brown lacquer (AI-generated product mockup)"
+    },
+    {
+      "slug": "body-fluid",
+      "name": "Body Fluid",
+      "sub": "SPF 50+",
+      "category": "sun",
+      "price": 595,
+      "format": "150 ml · frosted glass with pump",
+      "size": "150 ml",
+      "kicker": "The one for everything below the chin.",
+      "short": "A fast-absorbing body fluid with the same filter system as the face products. Very water resistant, dry to the touch in a minute, no scent left behind.",
+      "claims": ["Very high protection, SPF 50+", "Very water resistant, 80 min", "Dry-touch finish, no stickiness", "Fragrance-free, vegan"],
+      "use": "Apply generously 15 minutes before sun: about six pumps for arms, shoulders and décolleté, more for legs. Reapply every two hours and after swimming or towelling.",
+      "details": ["Broad-spectrum filters: Tinosorb S, Tinosorb M, Uvinul A Plus, Uvinul T150", "Glycerin, aloe and vitamin E", "Does not stain light fabrics", "Use within 12 months of opening"],
+      "skin": ["All skin types", "Swimmers and sailors", "Shoulders, arms and décolleté"],
+      "ingredients": [
+        { "name": "Tinosorb S and M, Uvinul A Plus, Uvinul T150", "role": "The same photostable broad-spectrum system as the face fluids." },
+        { "name": "Aloe vera", "role": "Light hydration without weight." },
+        { "name": "Tapioca starch", "role": "Gives the dry-touch finish so clothes go on straight away." },
+        { "name": "Vitamin E", "role": "Antioxidant support for long days outside." }
+      ],
+      "free_from": ["Fragrance", "Octocrylene", "Homosalate", "Oxybenzone (benzophenone-3)", "Octinoxate", "Denatured alcohol"],
+      "tests": ["SPF in vivo to ISO 24444", "UVA-PF in vitro to ISO 24443", "Very water resistant, 80 min, to ISO 16217", "Dermatologically tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "How much do I need for a whole body?", "a": "Around 30 ml, a fifth of the bottle, for an adult in swimwear. Most people use a third of that, which is why sunburn happens through sunscreen." },
+        { "q": "Can I use it on my face?", "a": "You can, but the face fluids are lighter and formulated for pores and make-up." }
+      ],
+      "pairs": ["sport-stick", "after-sun", "hand-cream"],
+      "image": "body-fluid",
+      "alt": "MARIA Body Fluid SPF 50+ in a tall frosted glass pump bottle (AI-generated product mockup)"
+    },
+    {
+      "slug": "sun-mist",
+      "name": "Sun Mist",
+      "sub": "SPF 30",
+      "category": "sun",
+      "price": 445,
+      "format": "75 ml · frosted glass, fine mist",
+      "size": "75 ml",
+      "kicker": "The one that goes over make-up.",
+      "short": "An ultra-fine, transparent mist for reapplying protection over make-up at midday, without touching the face. Hydrating, not drying, with no alcohol.",
+      "claims": ["High protection, SPF 30, for reapplication", "Transparent, dries in seconds", "Hydrating mist with glycerin and hyaluronic acid", "Fragrance-free, alcohol-free, vegan"],
+      "use": "Close eyes and mouth, hold 15 cm from the face and spray in a slow cross pattern until the skin feels evenly damp. Let dry. Reapply every two hours outdoors.",
+      "details": ["Water-based mist with Tinosorb S and Uvinul A Plus", "Low-weight hyaluronic acid and glycerin", "Pump atomiser, no propellant gas", "Use within 12 months of opening"],
+      "skin": ["All skin types", "Over make-up", "Office to terrace"],
+      "ingredients": [
+        { "name": "Tinosorb S and Uvinul A Plus", "role": "Filters that can be carried in a water-light mist without alcohol." },
+        { "name": "Hyaluronic acid, low molecular weight", "role": "Hydrates through the day instead of drying like aerosol sprays." },
+        { "name": "Glycerin", "role": "Keeps the mist from tightening make-up." }
+      ],
+      "free_from": ["Denatured alcohol", "Fragrance", "Propellant gas", "Octocrylene", "Homosalate"],
+      "tests": ["SPF in vivo to ISO 24444", "UVA-PF in vitro to ISO 24443", "Ophthalmologically tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Is a mist enough on its own?", "a": "Sun Mist is made for topping up a morning SPF. Used alone, most people spray too little to reach the tested protection. Start the day with Daily or Tinted Fluid." },
+        { "q": "Will it move my make-up?", "a": "No. The mist is fine enough to settle without droplets. Let it dry for a minute before touching the face." }
+      ],
+      "pairs": ["tinted-fluid", "daily-fluid", "vanity-mini"],
+      "image": "sun-mist",
+      "alt": "MARIA Sun Mist SPF 30 in a slim frosted glass spray bottle (AI-generated product mockup)"
+    },
+    {
+      "slug": "hand-cream",
+      "name": "Hand Cream",
+      "sub": "SPF 30",
+      "category": "sun",
+      "price": 345,
+      "format": "50 ml · frosted tube, espresso cap",
+      "size": "50 ml",
+      "kicker": "The one by the car keys.",
+      "short": "Hands are on the steering wheel, the handlebars and the ski poles all year. A rich but fast-absorbing hand cream with SPF 30, niacinamide and shea, for the skin that shows age first.",
+      "claims": ["High protection, SPF 30", "Niacinamide 5% against dark spots", "Absorbs in a minute, no residue on the keyboard", "Fragrance-free, vegan"],
+      "use": "Apply a hazelnut-sized amount to the backs of the hands in the morning and after washing. Massage into cuticles.",
+      "details": ["Tinosorb S and Uvinul A Plus", "Niacinamide 5%, shea butter, glycerin, ceramides", "Leaves no film on screens or steering wheels", "Use within 12 months of opening"],
+      "skin": ["Everyone", "Dry, chapped hands", "Early pigmentation on the hands"],
+      "ingredients": [
+        { "name": "Tinosorb S and Uvinul A Plus", "role": "Broad-spectrum filters that stay effective on skin that is washed and dried often." },
+        { "name": "Niacinamide 5%", "role": "Fades the dark spots that give hands away." },
+        { "name": "Shea butter and ceramides", "role": "Repair the barrier that wind, water and soap strip away." }
+      ],
+      "free_from": ["Fragrance", "Octocrylene", "Homosalate", "Mineral oil", "Silicones"],
+      "tests": ["SPF in vivo to ISO 24444", "UVA-PF in vitro to ISO 24443", "Dermatologically tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Why do hands need SPF in Norway?", "a": "Hands get year-round exposure through car windows and on the slopes, and the skin on the back of the hand is thin. Sun damage there shows as spots and crepey texture long before the face." }
+      ],
+      "pairs": ["body-fluid", "lip-spf30", "night-cream"],
+      "image": "hand-cream",
+      "alt": "MARIA Hand Cream SPF 30 in a frosted ivory tube with an espresso-brown cap (AI-generated product mockup)"
     },
     {
       "slug": "cleanser",
       "name": "Cleanser",
       "sub": "Gel-to-milk",
-      "category": "hudpleie",
+      "category": "skin",
       "price": 495,
-      "format": "150 ml · frostet glass med pumpe",
-      "kicker": "Den som avslutter dagen.",
-      "short": "En gel som blir til melk med vann og løser SPF 50+ fra huden uten å tørke den ut. pH 5,5, parfymefri.",
-      "claims": [
-        "Fjerner SPF 50+, dokumentert",
-        "pH 5,5, sulfatfri",
-        "Parfymefri, vegansk",
-        "Dermatologisk testet"
+      "format": "150 ml · frosted glass with pump",
+      "size": "150 ml",
+      "kicker": "The one that ends the day.",
+      "short": "A gel that turns to milk with water and lifts SPF 50+ from the skin without drying it out. pH 5.5, fragrance-free.",
+      "claims": ["Removes SPF 50+, documented", "pH 5.5, sulphate-free", "Fragrance-free, vegan", "Dermatologically tested"],
+      "use": "Massage one pump in dry hands over a dry face for 30 seconds. Add water until the gel turns to milk, rinse off. Use morning and evening; after a day of reapplied SPF, cleanse twice.",
+      "details": ["Mild glucoside surfactants", "Glycerin, panthenol and oat extract", "Removes water-resistant filters and light make-up", "Use within 12 months of opening"],
+      "skin": ["All skin types", "Sensitive skin", "Daily SPF wearers"],
+      "ingredients": [
+        { "name": "Coco- and decyl glucoside", "role": "Sugar-derived surfactants that lift oil-based filters without stripping." },
+        { "name": "Caprylic/capric triglyceride", "role": "Dissolves water-resistant sunscreen before the water comes." },
+        { "name": "Panthenol and oat extract", "role": "Leave the skin calm instead of tight." },
+        { "name": "Glycerin", "role": "Holds water in the skin through the rinse." }
       ],
-      "use": "Masser én pumpe i tørre hender over tørt ansikt. Tilsett vann til gelen blir melk, skyll av. Brukes morgen og kveld.",
-      "details": [
-        "Milde tensider fra glukosider",
-        "Glyserin og pantenol",
-        "Holdbar 12 måneder etter åpning"
+      "free_from": ["Sulphates", "Fragrance", "Soap", "Denatured alcohol", "Essential oils"],
+      "tests": ["Sunscreen removal tested on SPF 50+ very water resistant formulas", "pH 5.5 verified", "Dermatologically tested, ophthalmologically tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Do I need a double cleanse?", "a": "After one morning application, a single cleanse is enough. After a day of reapplying water-resistant SPF, cleanse twice." },
+        { "q": "Does it remove eye make-up?", "a": "Light mascara and shadow, yes. For waterproof mascara use a dedicated remover first." }
       ],
+      "pairs": ["hydrating-serum", "night-cream", "toner"],
       "image": "cleanser",
-      "alt": "MARIA Cleanser i frostet glassflaske med espressobrun pumpe (AI-generert produktmockup)"
+      "alt": "MARIA Cleanser in a frosted glass bottle with an espresso-brown pump (AI-generated product mockup)"
     },
     {
-      "slug": "startsettet",
-      "name": "Startsettet",
+      "slug": "toner",
+      "name": "Exfoliating Toner",
+      "sub": "PHA 5%",
+      "category": "skin",
+      "price": 545,
+      "format": "150 ml · frosted glass",
+      "size": "150 ml",
+      "kicker": "The patient exfoliant.",
+      "short": "A gentle liquid exfoliant with gluconolactone, a polyhydroxy acid that works at the surface without making the skin more sensitive to the sun. Smoother texture in two weeks, no peeling.",
+      "claims": ["PHA 5%, gentle enough for nightly use", "Does not increase sun sensitivity like AHA", "Hydrating, not stripping", "Fragrance-free, vegan"],
+      "use": "In the evening, after cleansing, press a few drops into the skin with hands or a cotton pad. Follow with serum and night cream. Start three evenings a week.",
+      "details": ["Gluconolactone 5%, pH 3.8", "Glycerin, panthenol and allantoin", "Suitable for sensitive skin", "Use within 12 months of opening"],
+      "skin": ["Dull, uneven texture", "Sensitive skin that cannot tolerate AHA", "Congested skin"],
+      "ingredients": [
+        { "name": "Gluconolactone 5%", "role": "A large-molecule polyhydroxy acid that exfoliates slowly at the surface and attracts water." },
+        { "name": "Panthenol and allantoin", "role": "Keep the skin calm while it renews." },
+        { "name": "Glycerin", "role": "Hydration that stays after the toner dries." }
+      ],
+      "free_from": ["Fragrance", "Denatured alcohol", "Glycolic and lactic acid", "Essential oils"],
+      "tests": ["pH verified at 3.8", "Dermatologically tested on sensitive skin", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Can I use it in the morning?", "a": "It is formulated for the evening. PHA does not increase sun sensitivity the way glycolic acid does, but exfoliated skin always deserves SPF the next day." },
+        { "q": "Can I combine it with the Antioxidant Serum?", "a": "Yes, toner in the evening and vitamin C in the morning is the intended rhythm." }
+      ],
+      "pairs": ["cleanser", "hydrating-serum", "night-cream"],
+      "image": "toner",
+      "alt": "MARIA Exfoliating Toner PHA 5% in a slender frosted glass bottle (AI-generated product mockup)"
+    },
+    {
+      "slug": "antioxidant-serum",
+      "name": "Antioxidant Serum",
+      "sub": "Vitamin C 10%",
+      "category": "skin",
+      "price": 895,
+      "format": "30 ml · frosted glass, dropper",
+      "size": "30 ml",
+      "kicker": "The morning partner to SPF.",
+      "short": "Pure L-ascorbic acid at 10 percent, stabilised with ferulic acid and vitamin E. Worn under SPF it adds the protection a filter cannot: against the free radicals that get through.",
+      "claims": ["L-ascorbic acid 10%, ferulic acid 0.5%, vitamin E 1%", "Brightens and evens tone in eight weeks", "Airless, light-proof bottle keeps it stable", "Fragrance-free, vegan"],
+      "use": "In the morning, on clean dry skin, press four drops over face and neck. Wait a minute, then apply Daily Fluid. Store away from heat and light.",
+      "details": ["Water-based, pH 3.2", "Ferulic acid doubles the photoprotection of vitamin C and E", "Slight warming on application is normal", "Use within 6 months of opening"],
+      "skin": ["Dull skin", "Early lines and uneven tone", "Daily SPF wearers who want more"],
+      "ingredients": [
+        { "name": "L-ascorbic acid 10%", "role": "The studied form of vitamin C: antioxidant, brightening and collagen-supporting." },
+        { "name": "Ferulic acid 0.5%", "role": "Stabilises vitamin C and E and increases their photoprotection." },
+        { "name": "Vitamin E 1%", "role": "A fat-soluble antioxidant that works with vitamin C in the skin's lipids." },
+        { "name": "Hyaluronic acid", "role": "Offsets the dryness that pure vitamin C can bring." }
+      ],
+      "free_from": ["Fragrance", "Denatured alcohol", "Essential oils", "Silicones"],
+      "tests": ["Stability tested over 12 months at 25 and 40 degrees", "Dermatologically tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "It tingles slightly. Is that normal?", "a": "A short warming or tingling on application is normal at pH 3.2. If it stings or stays red, use it every other morning for two weeks." },
+        { "q": "Why 10 percent and not 20?", "a": "Ten percent gives most of the benefit with far less irritation. With ferulic acid and vitamin E the photoprotection is already at its peak." },
+        { "q": "What if it turns orange?", "a": "A faint straw colour is normal. Deep orange means the vitamin C has oxidised; replace the bottle." }
+      ],
+      "pairs": ["daily-fluid", "moisturiser", "night-cream"],
+      "image": "antioxidant-serum",
+      "alt": "MARIA Antioxidant Serum in a frosted glass dropper bottle with an espresso-brown cap (AI-generated product mockup)"
+    },
+    {
+      "slug": "hydrating-serum",
+      "name": "Hydrating Serum",
+      "sub": "Hyaluronic + Niacinamide",
+      "category": "skin",
+      "price": 795,
+      "format": "30 ml · frosted glass, dropper",
+      "size": "30 ml",
+      "kicker": "The one for the dry season.",
+      "short": "Three weights of hyaluronic acid, niacinamide 5 percent and panthenol in a serum that holds water through indoor heating and outdoor wind. Morning or evening, under anything.",
+      "claims": ["Hyaluronic acid in three molecular weights", "Niacinamide 5% for barrier and tone", "Calms redness after sun and wind", "Fragrance-free, vegan"],
+      "use": "Press three drops into slightly damp skin, morning or evening, before cream or SPF. In winter, use it both.",
+      "details": ["Hyaluronic acid 2% (high, medium and low molecular weight)", "Niacinamide 5%, panthenol 2%, beta-glucan", "Oil-free, suitable for oily skin", "Use within 12 months of opening"],
+      "skin": ["Dehydrated skin", "Sensitive and redness-prone skin", "Oily skin that needs water, not oil"],
+      "ingredients": [
+        { "name": "Hyaluronic acid, three weights", "role": "Large molecules hydrate the surface, small molecules the layers beneath." },
+        { "name": "Niacinamide 5%", "role": "Strengthens the barrier, evens tone and reduces redness." },
+        { "name": "Panthenol 2% and beta-glucan", "role": "Soothe skin after sun, wind and cold." }
+      ],
+      "free_from": ["Fragrance", "Denatured alcohol", "Essential oils", "Oils and silicones"],
+      "tests": ["Corneometry: skin hydration measured over 24 hours", "Dermatologically tested on sensitive skin", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Can I use it with the Antioxidant Serum?", "a": "Yes. Vitamin C first, wait a minute, then Hydrating Serum, then SPF. Or use vitamin C in the morning and this one at night." },
+        { "q": "Does it pill under SPF?", "a": "No. It is water-light and absorbs in under a minute. Let it settle before the fluid." }
+      ],
+      "pairs": ["moisturiser", "mineral-fluid", "cleanser"],
+      "image": "hydrating-serum",
+      "alt": "MARIA Hydrating Serum in a frosted glass dropper bottle with an espresso-brown cap (AI-generated product mockup)"
+    },
+    {
+      "slug": "moisturiser",
+      "name": "Daily Moisturiser",
+      "sub": "Barrier cream",
+      "category": "skin",
+      "price": 695,
+      "format": "50 ml · frosted glass jar",
+      "size": "50 ml",
+      "kicker": "The quiet one.",
+      "short": "A ceramide cream that does the unglamorous work: keeps the barrier intact so SPF sits well, make-up stays and wind does not win. Medium weight, no shine.",
+      "claims": ["Ceramides NP, AP and EOP in a skin-identical ratio", "Squalane and shea for comfort without shine", "Sits well under SPF and make-up", "Fragrance-free, non-comedogenic, vegan"],
+      "use": "Morning and evening, after serum. A pea-sized amount for the face, a little more for the neck. In the morning, follow with SPF.",
+      "details": ["Ceramide complex 1%, cholesterol and fatty acids", "Squalane, shea butter, glycerin", "Also suitable around the eyes", "Use within 12 months of opening"],
+      "skin": ["Normal to dry skin", "Barrier-damaged skin", "Under SPF and make-up"],
+      "ingredients": [
+        { "name": "Ceramides NP, AP, EOP", "role": "The lipids the barrier is made of, in the ratio the skin uses." },
+        { "name": "Squalane", "role": "A plant-derived, skin-identical emollient that absorbs without shine." },
+        { "name": "Shea butter", "role": "Protection against wind and cold." },
+        { "name": "Glycerin", "role": "Draws water into the upper layers." }
+      ],
+      "free_from": ["Fragrance", "Essential oils", "Mineral oil", "Denatured alcohol"],
+      "tests": ["Transepidermal water loss measured over 28 days", "Dermatologically tested, non-comedogenic tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Do I need it under Daily Fluid?", "a": "Oily skin often does not. Normal to dry skin, and anyone in winter, will find the fluid sits better over it." },
+        { "q": "Is it rich enough for winter?", "a": "For most people, yes. For very dry skin, layer Hydrating Serum underneath or use Night Cream in the evening." }
+      ],
+      "pairs": ["hydrating-serum", "daily-fluid", "night-cream"],
+      "image": "moisturiser",
+      "alt": "MARIA Daily Moisturiser in a frosted glass jar with an espresso-brown lid (AI-generated product mockup)"
+    },
+    {
+      "slug": "night-cream",
+      "name": "Night Cream",
+      "sub": "Repair",
+      "category": "skin",
+      "price": 895,
+      "format": "50 ml · espresso glass jar, gold lid",
+      "size": "50 ml",
+      "kicker": "The one for the long game.",
+      "short": "Bakuchiol, peptides and ceramides in a rich cream that works while the skin repairs the day's exposure. The retinol alternative for skin that lives in sun, wind and cold.",
+      "claims": ["Bakuchiol 1%, retinol-like results without sensitising the skin", "Peptides and ceramides for firmness and barrier", "Suitable during pregnancy", "Fragrance-free, vegan"],
+      "use": "In the evening, as the last step, on face and neck. Can be used every night from the first jar.",
+      "details": ["Bakuchiol 1%, Matrixyl peptides, ceramides", "Shea butter, squalane, glycerin", "Dark glass protects the actives from light", "Use within 12 months of opening"],
+      "skin": ["Normal to dry skin", "First lines and loss of firmness", "Skin that does not tolerate retinol"],
+      "ingredients": [
+        { "name": "Bakuchiol 1%", "role": "A plant extract shown to improve lines and tone comparably to retinol, without peeling or sun sensitivity." },
+        { "name": "Palmitoyl peptides", "role": "Signal the skin to support its own collagen." },
+        { "name": "Ceramides and squalane", "role": "Repair the barrier overnight." },
+        { "name": "Shea butter", "role": "Richness for the dry season." }
+      ],
+      "free_from": ["Retinol", "Fragrance", "Essential oils", "Mineral oil", "Denatured alcohol"],
+      "tests": ["Clinical use test, 56 days, wrinkle depth and firmness", "Dermatologically tested", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Why bakuchiol instead of retinol?", "a": "Retinol makes the skin more sensitive to the sun and needs weeks of adjustment. Bakuchiol has shown comparable results on lines and pigmentation without either, which matters for skin that spends its days outside." },
+        { "q": "Can I use it with the Exfoliating Toner?", "a": "Yes. Toner first, then Night Cream." }
+      ],
+      "pairs": ["toner", "cleanser", "antioxidant-serum"],
+      "image": "night-cream",
+      "alt": "MARIA Night Cream in a dark espresso glass jar with a gold lid (AI-generated product mockup)"
+    },
+    {
+      "slug": "after-sun",
+      "name": "After Sun",
+      "sub": "Balm",
+      "category": "skin",
+      "price": 495,
+      "format": "150 ml · soft tube, flip cap",
+      "size": "150 ml",
+      "kicker": "The evening after.",
+      "short": "A cooling balm for the evening after a day outside: panthenol 5 percent, aloe, bisabolol and ceramides to calm, rehydrate and repair. For face and body, and for skin that got more sun than planned.",
+      "claims": ["Panthenol 5% and bisabolol to calm redness", "Ceramides to repair the barrier", "Cooling gel-cream texture, absorbs fast", "Fragrance-free, vegan"],
+      "use": "Apply generously to clean skin in the evening after sun exposure, face and body. Repeat in the morning if the skin feels tight. Keep in the fridge in summer.",
+      "details": ["Panthenol 5%, aloe vera, bisabolol, allantoin", "Ceramides, squalane, glycerin", "No menthol, no alcohol", "Use within 12 months of opening"],
+      "skin": ["Everyone", "Sun-stressed and wind-burnt skin", "Children from 3 years"],
+      "ingredients": [
+        { "name": "Panthenol 5%", "role": "Provitamin B5 at a concentration used for skin repair." },
+        { "name": "Aloe vera and bisabolol", "role": "Cool and calm redness without the sting of menthol or alcohol." },
+        { "name": "Ceramides and squalane", "role": "Put back what a day of sun, salt and wind took out." }
+      ],
+      "free_from": ["Fragrance", "Menthol", "Denatured alcohol", "Essential oils", "Lidocaine"],
+      "tests": ["Soothing effect measured by skin redness after UV exposure", "Dermatologically tested on sensitive skin", "Notified in the EU Cosmetic Products Notification Portal before sale"],
+      "faq": [
+        { "q": "Does it treat sunburn?", "a": "It calms and rehydrates skin that has had too much sun. A burn with blisters, fever or large areas needs medical advice, not a balm." },
+        { "q": "Can I use it as a daily moisturiser?", "a": "On the body, yes. On the face, Daily Moisturiser is formulated to sit under SPF and make-up." }
+      ],
+      "pairs": ["body-fluid", "sport-stick", "hydrating-serum"],
+      "image": "after-sun",
+      "alt": "MARIA After Sun Balm in a frosted ivory tube with an espresso-brown flip cap (AI-generated product mockup)"
+    },
+    {
+      "slug": "starter-set",
+      "name": "The Starter Set",
       "sub": "Daily Fluid · Sport Stick · Lip",
-      "category": "solpleie",
+      "category": "sets",
       "price": 1295,
       "compare": 1435,
-      "format": "Tre produkter · spar NOK 140",
-      "kicker": "Det en dag ute krever.",
-      "short": "Én til ansiktet, én til lommen, én til leppene. Daily Fluid SPF 50+, Sport Stick SPF 50+ og Lip SPF 30 i én eske.",
-      "claims": [
-        "Daily Fluid SPF 50+, 50 ml",
-        "Sport Stick SPF 50+, 20 g",
-        "Lip SPF 30, 4,5 g",
-        "Eske i elfenbenspapp med blindpreg"
+      "format": "Three products · save NOK 140",
+      "size": "50 ml · 20 g · 4.5 g",
+      "kicker": "What a day outside asks for.",
+      "short": "One for the face, one for the pocket, one for the lips. Daily Fluid SPF 50+, Sport Stick SPF 50+ and Lip SPF 30 in one box.",
+      "claims": ["Daily Fluid SPF 50+, 50 ml", "Sport Stick SPF 50+, 20 g", "Lip SPF 30, 4.5 g", "Ivory board box with blind embossing"],
+      "use": "Daily Fluid in the morning, Sport Stick and Lip through the day.",
+      "details": ["Combined value NOK 1 435", "Gift-wrapped on request", "The set sent to the first 1,000 on the waitlist"],
+      "skin": ["Everyone"],
+      "faq": [
+        { "q": "Can I choose Tinted Fluid instead?", "a": "At launch the set comes with Daily Fluid. Tinted Fluid can be bought separately in three shades." }
       ],
-      "use": "Daily Fluid om morgenen, Sport Stick og Lip gjennom dagen.",
-      "details": [
-        "Samlet verdi NOK 1 435",
-        "Pakkes som gave på forespørsel"
-      ],
+      "pairs": ["vanity-mini", "cleanser", "after-sun"],
       "image": "collection",
-      "alt": "MARIA-kolleksjonen samlet på travertin (AI-generert produktmockup)",
-      "set": [
-        "daily-fluid",
-        "sport-stick",
-        "lip-spf30"
-      ]
+      "alt": "The MARIA collection gathered on travertine (AI-generated product mockup)",
+      "set": ["daily-fluid", "sport-stick", "lip-spf30"]
+    },
+    {
+      "slug": "morning-ritual",
+      "name": "The Morning Ritual",
+      "sub": "Antioxidant Serum · Daily Fluid",
+      "category": "sets",
+      "price": 1395,
+      "compare": 1590,
+      "format": "Two products · save NOK 195",
+      "size": "30 ml · 50 ml",
+      "kicker": "Two steps, the best-documented pair in skincare.",
+      "short": "Vitamin C under SPF is the combination dermatologists agree on: the filter stops most of the UV, the antioxidant deals with what gets through. Antioxidant Serum and Daily Fluid, together.",
+      "claims": ["Antioxidant Serum, vitamin C 10%, 30 ml", "Daily Fluid SPF 50+, 50 ml", "Four drops, two pumps, two minutes", "Ivory board box with blind embossing"],
+      "use": "Serum first on clean skin, wait a minute, then the fluid. Every morning.",
+      "details": ["Combined value NOK 1 590", "Gift-wrapped on request"],
+      "skin": ["All skin types", "Anyone who wants more than SPF alone"],
+      "faq": [
+        { "q": "Can I add a moisturiser between the two?", "a": "Yes: serum, moisturiser, fluid. Oily skin can skip the middle step." }
+      ],
+      "pairs": ["cleanser", "night-cream", "sun-mist"],
+      "image": "set-morning",
+      "alt": "MARIA Antioxidant Serum and Daily Fluid SPF 50+ side by side on travertine (AI-generated product mockup)",
+      "set": ["antioxidant-serum", "daily-fluid"]
+    },
+    {
+      "slug": "complete-routine",
+      "name": "The Complete Routine",
+      "sub": "Cleanser · Hydrating Serum · Daily Fluid · Night Cream",
+      "category": "sets",
+      "price": 2595,
+      "compare": 2880,
+      "format": "Four products · save NOK 285",
+      "size": "150 ml · 30 ml · 50 ml · 50 ml",
+      "kicker": "Morning to night, in four steps.",
+      "short": "Everything the skin needs in a Nordic year: a cleanser that removes SPF, a serum that holds water, a fluid that protects and a cream that repairs. Nothing you will not use.",
+      "claims": ["Cleanser gel-to-milk, 150 ml", "Hydrating Serum, 30 ml", "Daily Fluid SPF 50+, 50 ml", "Night Cream, 50 ml"],
+      "use": "Morning: cleanse, serum, fluid. Evening: cleanse, serum, night cream.",
+      "details": ["Combined value NOK 2 880", "Gift-wrapped on request", "Fits the Vanity Medium"],
+      "skin": ["All skin types", "Anyone starting a routine from scratch"],
+      "faq": [
+        { "q": "Where does the Antioxidant Serum fit?", "a": "Add it in the morning between cleanser and Hydrating Serum when you want to go further." }
+      ],
+      "pairs": ["vanity-medium", "antioxidant-serum", "toner"],
+      "image": "set-complete",
+      "alt": "MARIA Cleanser, Hydrating Serum, Daily Fluid and Night Cream in a row on travertine (AI-generated product mockup)",
+      "set": ["cleanser", "hydrating-serum", "daily-fluid", "night-cream"]
     },
     {
       "slug": "vanity-king-size",
@@ -184,32 +541,24 @@
       "sub": "Maison Maria Vanity Collection",
       "category": "vanity",
       "price": 4495,
-      "format": "35 × 25 × 18 cm · espresso vegansk skinn, gull",
-      "kicker": "Hele garderoben.",
-      "short": "Et strukturert beauty case med speil i lokket, uttagbar brett og elfenben semsket innmat. Inneholder hele kolleksjonen, pluss en ekstra Daily Fluid til reiseflasken.",
-      "claims": [
-        "Speil i lokket og uttagbar brett",
-        "Espresso pebbled vegansk skinn, champagnegull beslag",
-        "Inneholder alle fem produktene + ekstra Daily Fluid",
-        "Diskré MARIA-merke i gull"
+      "format": "35 × 25 × 18 cm · espresso vegan leather, gold",
+      "size": "35 × 25 × 18 cm",
+      "kicker": "The whole wardrobe.",
+      "short": "A structured beauty case with a mirror in the lid, a removable tray and ivory suede lining. Holds the core routine, plus a second Daily Fluid for the travel bottle.",
+      "claims": ["Mirror in the lid and removable tray", "Espresso pebbled vegan leather, champagne-gold hardware", "Holds six products, packed and ready", "Discreet MARIA mark in gold"],
+      "use": "Lives in the bathroom or comes along on the journey. Lift out the tray and everything has its place.",
+      "details": ["Dimensions 35 × 25 × 18 cm, weight approx. 1.4 kg empty", "Contents: Daily Fluid × 2, Tinted Fluid, Sport Stick, Lip SPF 30, Cleanser", "Product value NOK 3 370; the case alone NOK 1 125", "Vegan leather: polyurethane on recycled polyester, solvent-free"],
+      "skin": ["Everyone"],
+      "faq": [
+        { "q": "Can I choose the products inside?", "a": "At launch the cases come pre-packed. Shade of Tinted Fluid can be chosen at checkout." },
+        { "q": "Is the leather real?", "a": "No. It is a solvent-free polyurethane on recycled polyester, chosen for durability and to keep the collection vegan." }
       ],
-      "use": "Står på badet eller blir med på reise. Brettet tas ut og alt får sin plass.",
-      "details": [
-        "Mål 35 × 25 × 18 cm, vekt ca. 1,4 kg uten innhold",
-        "Innhold: Daily Fluid × 2, Tinted Fluid, Sport Stick, Lip SPF 30, Cleanser",
-        "Produktverdi NOK 3 370; vesken alene NOK 1 125"
-      ],
+      "pairs": ["vanity-medium", "vanity-mini", "complete-routine"],
       "image": "vanity-king",
-      "alt": "Maison Maria Vanity King Size, åpent espresso beauty case med speil og hele kolleksjonen (AI-generert produktmockup)",
-      "set": [
-        "daily-fluid",
-        "daily-fluid",
-        "tinted-fluid",
-        "sport-stick",
-        "lip-spf30",
-        "cleanser"
-      ],
-      "dims": "35 × 25 × 18 cm"
+      "alt": "Maison Maria Vanity King Size, an open espresso beauty case with mirror and the full collection (AI-generated product mockup)",
+      "set": ["daily-fluid", "daily-fluid", "tinted-fluid", "sport-stick", "lip-spf30", "cleanser"],
+      "dims": "35 × 25 × 18 cm",
+      "variants": { "label": "Tinted Fluid shade", "options": ["Light", "Medium", "Deep"] }
     },
     {
       "slug": "vanity-medium",
@@ -217,29 +566,21 @@
       "sub": "Maison Maria Vanity Collection",
       "category": "vanity",
       "price": 2695,
-      "format": "27 × 18 × 13 cm · espresso vegansk skinn, gull glidelås",
-      "kicker": "Den som reiser.",
-      "short": "Mykt strukturert reiseetui med gull glidelås og elfenben fôr. Inneholder dagsrutinen: Daily Fluid, Sport Stick, Lip og Cleanser.",
-      "claims": [
-        "Gull glidelås, elfenben fôr",
-        "Espresso pebbled vegansk skinn",
-        "Inneholder Daily Fluid, Sport Stick, Lip SPF 30 og Cleanser",
-        "Får plass i håndbagasjen"
+      "format": "27 × 18 × 13 cm · espresso vegan leather, gold zip",
+      "size": "27 × 18 × 13 cm",
+      "kicker": "The one that travels.",
+      "short": "A soft-structured travel case with a gold zip and ivory lining. Holds the daily routine: Daily Fluid, Sport Stick, Lip and Cleanser.",
+      "claims": ["Gold zip, ivory lining", "Espresso pebbled vegan leather", "Holds Daily Fluid, Sport Stick, Lip SPF 30 and Cleanser", "Fits in hand luggage"],
+      "use": "Pack it, zip it, done.",
+      "details": ["Dimensions 27 × 18 × 13 cm", "Contents: Daily Fluid, Sport Stick, Lip SPF 30, Cleanser", "Product value NOK 1 930; the case alone NOK 765", "Vegan leather: polyurethane on recycled polyester, solvent-free"],
+      "skin": ["Everyone"],
+      "faq": [
+        { "q": "Does the Cleanser pass airport security?", "a": "Yes. 150 ml must go in the checked bag; for hand luggage, decant into the 50 ml travel bottle included in the case." }
       ],
-      "use": "Pakk ned, dra opp glidelåsen, ferdig.",
-      "details": [
-        "Mål 27 × 18 × 13 cm",
-        "Innhold: Daily Fluid, Sport Stick, Lip SPF 30, Cleanser",
-        "Produktverdi NOK 1 930; etuiet alene NOK 765"
-      ],
+      "pairs": ["vanity-mini", "complete-routine", "sun-mist"],
       "image": "vanity-medium",
-      "alt": "Maison Maria Vanity Medium, espresso reiseetui med gull glidelås og produkter (AI-generert produktmockup)",
-      "set": [
-        "daily-fluid",
-        "sport-stick",
-        "lip-spf30",
-        "cleanser"
-      ],
+      "alt": "Maison Maria Vanity Medium, an espresso travel case with gold zip and products (AI-generated product mockup)",
+      "set": ["daily-fluid", "sport-stick", "lip-spf30", "cleanser"],
       "dims": "27 × 18 × 13 cm"
     },
     {
@@ -248,27 +589,21 @@
       "sub": "Maison Maria Vanity Collection",
       "category": "vanity",
       "price": 1395,
-      "format": "19 × 12 × 8 cm · espresso vegansk skinn, gull glidelås",
-      "kicker": "Den i vesken.",
-      "short": "En liten pouch i espresso-skinn med gull glidelås. Inneholder Daily Fluid og Lip SPF 30, det du trenger for å gjenta beskyttelsen gjennom dagen.",
-      "claims": [
-        "Gull glidelås, elfenben fôr",
-        "Espresso pebbled vegansk skinn",
-        "Inneholder Daily Fluid og Lip SPF 30",
-        "Flat nok til lommen"
+      "format": "19 × 12 × 8 cm · espresso vegan leather, gold zip",
+      "size": "19 × 12 × 8 cm",
+      "kicker": "The one in the handbag.",
+      "short": "A small pouch in espresso leather with a gold zip. Holds Daily Fluid and Lip SPF 30, what you need to reapply through the day.",
+      "claims": ["Gold zip, ivory lining", "Espresso pebbled vegan leather", "Holds Daily Fluid and Lip SPF 30", "Flat enough for a pocket"],
+      "use": "Lives in the handbag. Daily Fluid and Lip are reapplied at midday.",
+      "details": ["Dimensions 19 × 12 × 8 cm", "Contents: Daily Fluid, Lip SPF 30", "Product value NOK 990; the pouch alone NOK 405", "Vegan leather: polyurethane on recycled polyester, solvent-free"],
+      "skin": ["Everyone"],
+      "faq": [
+        { "q": "Does Sun Mist fit?", "a": "Yes, the pouch takes Daily Fluid, Lip and one more slim product such as Sun Mist or Sport Stick." }
       ],
-      "use": "Ligger i vesken. Daily Fluid og Lip gjentas midt på dagen.",
-      "details": [
-        "Mål 19 × 12 × 8 cm",
-        "Innhold: Daily Fluid, Lip SPF 30",
-        "Produktverdi NOK 990; pouchen alene NOK 405"
-      ],
+      "pairs": ["sun-mist", "sport-stick", "starter-set"],
       "image": "vanity-mini",
-      "alt": "Maison Maria Vanity Mini, espresso pouch med gull glidelås og to produkter (AI-generert produktmockup)",
-      "set": [
-        "daily-fluid",
-        "lip-spf30"
-      ],
+      "alt": "Maison Maria Vanity Mini, an espresso pouch with gold zip and two products (AI-generated product mockup)",
+      "set": ["daily-fluid", "lip-spf30"],
       "dims": "19 × 12 × 8 cm"
     }
   ]

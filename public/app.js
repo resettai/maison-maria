@@ -19,7 +19,7 @@
     var k = lineKey(slug, variant);
     var found = items.filter(function (i) { return lineKey(i.slug, i.variant) === k; })[0];
     if (found) found.qty += 1; else items.push({ slug: slug, variant: variant || '', qty: 1 });
-    write(items); render(); openDrawer(); toast('Lagt i handlekurven');
+    write(items); render(); openDrawer(); toast('Added to cart');
   }
   function setQty(k, qty) {
     items = items.map(function (i) { if (lineKey(i.slug, i.variant) === k) i.qty = qty; return i; }).filter(function (i) { return i.qty > 0; });
@@ -33,8 +33,8 @@
       '<img src="/assets/img/' + p.image + '-sm.jpg" alt="">' +
       '<div><h3>' + p.name + (p.sub ? ' <span class="meta">' + p.sub + '</span>' : '') + '</h3>' +
       (i.variant ? '<p class="meta">' + i.variant + '</p>' : '') +
-      '<div><span class="qty"><button type="button" data-dec aria-label="Færre">−</button><span>' + i.qty + '</span><button type="button" data-inc aria-label="Flere">+</button></span>' +
-      '<button type="button" class="rm" data-rm>Fjern</button></div></div>' +
+      '<div><span class="qty"><button type="button" data-dec aria-label="Decrease">−</button><span>' + i.qty + '</span><button type="button" data-inc aria-label="Increase">+</button></span>' +
+      '<button type="button" class="rm" data-rm>Remove</button></div></div>' +
       '<div class="lp">' + nok(p.price * i.qty) + '</div></div>';
   }
 
@@ -44,7 +44,7 @@
       el.textContent = n; el.setAttribute('data-zero', n === 0 ? 'true' : 'false');
     });
     Array.prototype.forEach.call(document.querySelectorAll('[data-cart-lines]'), function (el) {
-      el.innerHTML = items.length ? items.map(lineHTML).join('') : '<p class="cart-empty">Handlekurven er tom.</p>';
+      el.innerHTML = items.length ? items.map(lineHTML).join('') : '<p class="cart-empty">Your cart is empty.</p>';
     });
     Array.prototype.forEach.call(document.querySelectorAll('[data-cart-total]'), function (el) { el.textContent = nok(total()); });
   }
@@ -86,7 +86,7 @@
       e.target.closest('[data-menu]').setAttribute('aria-expanded', open ? 'false' : 'true');
       return;
     }
-    if (e.target.closest('[data-checkout]')) { e.preventDefault(); toast('Betaling er ikke aktivert ennå'); }
+    if (e.target.closest('[data-checkout]')) { e.preventDefault(); toast('Payment is not enabled yet'); }
   });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDrawer(); });
 
@@ -95,7 +95,15 @@
   if (wl) wl.addEventListener('submit', function (e) {
     e.preventDefault();
     var name = (document.getElementById('wl-name').value || '').trim().split(/\s+/)[0];
-    wl.hidden = true; var c = document.getElementById('wl-confirm'); c.hidden = false; c.textContent = 'Takk' + (name ? ', ' + name : '') + '. Du står på listen.';
+    wl.hidden = true; var c = document.getElementById('wl-confirm'); c.hidden = false; c.textContent = 'Thank you' + (name ? ', ' + name : '') + '. You are on the list.';
+  });
+
+  /* contact form: preview only */
+  var cf = document.getElementById('contact');
+  if (cf) cf.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = (document.getElementById('c-name').value || '').trim().split(/\s+/)[0];
+    cf.hidden = true; var c = document.getElementById('c-confirm'); c.hidden = false; c.textContent = 'Thank you' + (name ? ', ' + name : '') + '. We answer within one working day once the shop opens.';
   });
 
   render();

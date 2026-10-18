@@ -2,26 +2,27 @@ import { next } from '@vercel/functions';
 
 // Password gate for the preview site.
 // Unauthenticated visitors get a branded landing page with a single password
-// field (no username). The form posts to /api/adgang, which verifies the password
+// field (no username). The form posts to /api/access, which verifies the password
 // against SITE_PASS and sets an HttpOnly cookie; this middleware checks that cookie.
 
 export const config = { matcher: '/:path*' };
 
-const COOKIE = 'mm_adgang';
+const COOKIE = 'mm_access';
 const PUBLIC = new Set([
-  '/api/adgang',
+  '/api/access',
   '/favicon.ico',
   '/favicon-64.png',
   '/apple-touch-icon.png',
   '/assets/maison-maria-lockup.svg',
   '/assets/maison-maria-lockup-light.svg',
-  '/assets/img/maria-sol.jpg'
+  '/assets/img/daily-fluid.jpg',
+  '/assets/img/collection.jpg'
 ]);
 const enc = new TextEncoder();
 
 async function expectedToken(pass) {
   const key = await crypto.subtle.importKey('raw', enc.encode(pass), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const sig = await crypto.subtle.sign('HMAC', key, enc.encode('maison-maria-adgang-v1'));
+  const sig = await crypto.subtle.sign('HMAC', key, enc.encode('maison-maria-access-v1'));
   return Array.from(new Uint8Array(sig), b => b.toString(16).padStart(2, '0')).join('');
 }
 
@@ -48,12 +49,12 @@ function esc(s) {
 
 function page(nextPath, state) {
   const message = state === 'wrong'
-    ? '<p class="err" role="alert">Passordet stemmer ikke. Prøv igjen.</p>'
+    ? '<p class="err" role="alert">That password is not right. Try again.</p>'
     : state === 'unset'
-      ? '<p class="err" role="alert">Passord er ikke konfigurert for denne siden ennå.</p>'
+      ? '<p class="err" role="alert">No password has been set for this site yet.</p>'
       : '';
   return `<!doctype html>
-<html lang="nb">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -62,7 +63,8 @@ function page(nextPath, state) {
 <title>Maison Maria</title>
 <link rel="icon" href="/favicon-64.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" as="image" href="/assets/img/maria-sol.jpg">
+<link rel="preload" as="image" href="/assets/img/daily-fluid.jpg" media="(max-width: 59.99rem)">
+<link rel="preload" as="image" href="/assets/img/collection.jpg" media="(min-width: 60rem)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&amp;family=Inter:wght@400;500&amp;display=swap">
@@ -72,9 +74,10 @@ function page(nextPath, state) {
 html { -webkit-text-size-adjust: 100%; }
 body { background: var(--espresso); color: var(--ivory); font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; }
 .shell { position: relative; min-height: 100svh; }
-.photo { position: fixed; inset: 0; z-index: 0; background: var(--espresso); }
-.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; display: block; animation: fade 1.4s ease both; }
-.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,31,25,.42) 0%, rgba(42,31,25,0) 24%, rgba(42,31,25,0) 44%, rgba(42,31,25,.86) 74%, rgba(42,31,25,.95) 100%); }
+.photo { position: fixed; inset: 0; z-index: 0; background: var(--espresso); overflow: hidden; }
+.photo img { width: 100%; height: 118%; object-fit: cover; object-position: 50% 30%; display: block; animation: fade 1.4s ease both; }
+.credit { position: absolute; right: .9rem; top: .8rem; font-family: Inter, system-ui, sans-serif; font-size: .58rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(244,239,230,.8); text-shadow: 0 0 6px rgba(42,31,25,.5); z-index: 1; }
+.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,31,25,.28) 0%, rgba(42,31,25,0) 22%, rgba(42,31,25,0) 42%, rgba(42,31,25,.84) 72%, rgba(42,31,25,.95) 100%); }
 .panel { position: relative; z-index: 1; min-height: 100svh; display: flex; flex-direction: column; padding: calc(1.4rem + env(safe-area-inset-top)) 20px calc(1.2rem + env(safe-area-inset-bottom)); }
 .logo { width: 150px; height: auto; display: block; margin: 0 auto; }
 .logo--dark { display: none; }
@@ -98,9 +101,10 @@ footer span { display: inline-block; margin: 0 .6rem; }
 @media (prefers-reduced-motion: reduce) { .photo img, .gate { animation: none; } }
 @media (min-width: 60rem) {
   body { background: var(--ivory); color: var(--ink); }
-  .shell { display: grid; grid-template-columns: minmax(26rem, 46%) 1fr; }
+  .shell { display: grid; grid-template-columns: minmax(26rem, 52%) 1fr; }
   .photo { position: sticky; top: 0; inset: auto; height: 100svh; }
-  .photo img { object-position: 50% 25%; }
+  .photo img { height: 100%; object-position: 26% 50%; }
+  .credit { color: rgba(42,31,25,.55); text-shadow: none; }
   .photo::after { background: linear-gradient(90deg, rgba(42,31,25,0) 85%, rgba(42,31,25,.08) 100%); }
   .panel { min-height: 100svh; justify-content: center; align-items: center; padding: 5rem clamp(2rem, 6vw, 7rem) 6rem; }
   .logo { width: 220px; }
@@ -122,26 +126,26 @@ footer span { display: inline-block; margin: 0 .6rem; }
 </head>
 <body>
 <div class="shell">
-  <div class="photo" aria-hidden="true"><img src="/assets/img/maria-sol.jpg" alt="" width="720" height="1280"></div>
+  <div class="photo" aria-hidden="true"><picture><source media="(min-width: 60rem)" srcset="/assets/img/collection.jpg"><img src="/assets/img/daily-fluid.jpg" alt="" width="960" height="1280"></picture><span class="credit">AI-generated mockup</span></div>
   <main class="panel">
     <img class="logo logo--light" src="/assets/maison-maria-lockup-light.svg" alt="Maison Maria" width="150" height="52">
     <img class="logo logo--dark" src="/assets/maison-maria-lockup.svg" alt="Maison Maria" width="220" height="77">
     <div class="gate">
       <div class="rule" aria-hidden="true"></div>
-      <h1>Forhåndsvisning for inviterte.</h1>
-      <p class="lead">Skriv inn passordet du har fått.</p>
-      <form method="post" action="/api/adgang" autocomplete="off">
+      <h1>A private preview.</h1>
+      <p class="lead">Enter the password you were given.</p>
+      <form method="post" action="/api/access" autocomplete="off">
         <input type="hidden" name="next" value="${esc(nextPath)}">
-        <label for="passord">Passord</label>
-        <input id="passord" name="passord" type="password" autocomplete="current-password" enterkeyhint="go" required spellcheck="false" autocapitalize="off">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" enterkeyhint="go" required spellcheck="false" autocapitalize="off">
         ${message}
-        <button type="submit">Åpne</button>
+        <button type="submit">Enter</button>
       </form>
     </div>
     <footer><span>Fabriqué en France</span><span>Maison Maria · 2027</span></footer>
   </main>
 </div>
-<script>if (matchMedia('(min-width: 60rem)').matches) { var f = document.getElementById('passord'); if (f) f.focus(); }</script>
+<script>if (matchMedia('(min-width: 60rem)').matches) { var f = document.getElementById('password'); if (f) f.focus(); }</script>
 </body>
 </html>`;
 }
@@ -164,10 +168,10 @@ export default async function middleware(request) {
   if (!wantsPage) return new Response('Authentication required', { status: 401, headers });
 
   const params = new URLSearchParams(url.search);
-  const state = !pass ? 'unset' : params.get('adgang') === 'feil' ? 'wrong' : '';
-  params.delete('adgang');
+  const state = !pass ? 'unset' : params.get('access') === 'denied' ? 'wrong' : '';
+  params.delete('access');
   const q = params.toString();
-  const nextPath = (path === '/api/adgang' ? '/' : path) + (q ? '?' + q : '');
+  const nextPath = (path === '/api/access' ? '/' : path) + (q ? '?' + q : '');
   return new Response(page(nextPath, state), {
     status: 401,
     headers: { ...headers, 'Content-Type': 'text/html; charset=utf-8' }

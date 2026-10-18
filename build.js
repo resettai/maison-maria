@@ -18,9 +18,10 @@ const isWide = img => WIDE.includes(img);
 const NAV = [
   ['/shop', 'Shop'],
   ['/vanity', 'Vanity Collection'],
+  ['/maison', 'Maison'],
   ['/guide', 'Sun guide'],
   ['/journal', 'Journal'],
-  ['/maison', 'Maison']
+  ['/about', 'About']
 ];
 
 function layout({ title, desc, body, current }) {
@@ -60,9 +61,9 @@ ${body}
 <footer class="ftr">
   <div class="wrap ftr-in">
     <div><img src="/assets/maison-maria-lockup-light.svg" alt="Maison Maria" width="1191" height="123"><p class="ftr-note" style="margin-top:1rem">Sun care as skincare. Formulated and made in France.</p></div>
-    <div><h4>Shop</h4><a href="/shop#sun">Sun care</a><a href="/shop#skin">Skincare</a><a href="/shop#sets">Sets</a><a href="/vanity">Vanity Collection</a><a href="/cart">Cart</a></div>
-    <div><h4>Learn</h4><a href="/guide">Sun guide</a><a href="/journal">Journal</a><a href="/faq">FAQ</a><a href="/maison#standards">Testing and standards</a></div>
-    <div><h4>Maison</h4><a href="/maison">About the house</a><a href="/maison#france">Fabriqué en France</a><a href="/contact">Contact</a><a href="/shipping">Shipping and returns</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+    <div><h4>Shop</h4><a href="/shop#sun">Sun care</a><a href="/shop#skin">Skincare</a><a href="/shop#sets">Sets</a><a href="/vanity">Vanity Collection</a><a href="/maison">Maison</a><a href="/cart">Cart</a></div>
+    <div><h4>Learn</h4><a href="/guide">Sun guide</a><a href="/journal">Journal</a><a href="/faq">FAQ</a><a href="/about#standards">Testing and standards</a></div>
+    <div><h4>The house</h4><a href="/about">About the house</a><a href="/about#france">Fabriqué en France</a><a href="/contact">Contact</a><a href="/shipping">Shipping and returns</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
   </div>
   <div class="wrap"><p class="ftr-note ftr-legal">Preview. Payment is not enabled. Product images are AI-generated mockups and labelled as such. Product information, prices, ingredients and claims are provisional until approved and notified. Prices in euros; local currency, taxes and duties are shown at checkout. MARIA Skincare (in formation), 2026.</p></div>
 </footer>
@@ -183,6 +184,16 @@ const home = layout({
   </div>
 </section>
 
+<section class="band band--rev" style="background:var(--ivory-2)" aria-labelledby="h-maison">
+  <div class="band-img"><img src="/assets/img/candle.jpg" alt="${esc(bySlug['candle'].alt)}" loading="lazy" width="960" height="1280"></div>
+  <div class="band-txt">
+    <span class="ui" style="color:var(--gold)">Maison</span>
+    <h2 id="h-maison">Scent for the room. Never for the face.</h2>
+    <p>Two scents, Midi and Nuit, in candles, a diffuser, a hand wash and a linen mist; silk for the night, velvet for the sink. The skincare stays fragrance-free; the house does not have to.</p>
+    <a class="btn btn--ghost" href="/maison">See Maison</a>
+  </div>
+</section>
+
 <section class="strip" aria-labelledby="h-soleil">
   <img src="/assets/img/nord.jpg" alt="Low sun over still water (AI-generated illustration)" loading="lazy" width="1536" height="1024">
   <div class="strip-txt"><span class="ui">Light</span><h2 id="h-soleil">Wherever the light finds you.</h2></div>
@@ -201,7 +212,7 @@ const home = layout({
     <span class="ui" style="color:var(--gold)">Fabriqué en France</span>
     <h2 id="h-france">Formulated and made outside Lyon.</h2>
     <p>At a French house that has made skincare and sun care since 1947, with its own SPF laboratory and ISO 22716 certification. Every sunscreen is tested to ISO 24444 and ISO 24443 before it reaches the market.</p>
-    <a class="btn btn--ghost" href="/maison">About the house</a>
+    <a class="btn btn--ghost" href="/about">About the house</a>
   </div>
 </section>
 
@@ -248,7 +259,7 @@ const shop = layout({
     ${data.categories.map(c => `
     <h2 id="${c.id}" class="cat-h">${c.name}</h2>
     <p class="cat-p">${c.blurb}</p>
-    ${grid(P.filter(p => p.category === c.id), c.id === 'sun' || c.id === 'skin' ? 'grid--4' : '')}`).join('')}
+    ${grid(P.filter(p => p.category === c.id), ['sun', 'skin', 'maison'].includes(c.id) ? 'grid--4' : '')}`).join('')}
   </div>
 </section>`
 });
@@ -322,7 +333,7 @@ function productPage(p) {
   const setBlock = p.set ? `<section class="pdp-set"><h2>Contains</h2><div class="set-list">${[...new Set(p.set)].map(s => { const q = bySlug[s]; const n = p.set.filter(x => x === s).length; return `<a href="/product/${q.slug}"><div class="card-img"><img src="/assets/img/${q.image}-sm.jpg" alt="${esc(q.alt)}" loading="lazy" width="700" height="700"></div><h3>${q.name} ${q.sub || ''}${n > 1 ? ' × ' + n : ''}</h3></a>`; }).join('')}</div></section>` : '';
   const ingredients = p.ingredients ? `<details class="acc" open><summary>Key ingredients</summary><dl class="kv">${p.ingredients.map(i => `<div><dt>${esc(i.name)}</dt><dd>${esc(i.role)}</dd></div>`).join('')}</dl></details>` : '';
   const freeFrom = p.free_from ? `<details class="acc"><summary>Formulated without</summary><ul class="inline-list">${p.free_from.map(f => `<li>${esc(f)}</li>`).join('')}</ul></details>` : '';
-  const tests = p.tests ? `<details class="acc"><summary>Testing and standards</summary><ul>${p.tests.map(t => `<li>${esc(t)}</li>`).join('')}</ul><p class="pdp-note" style="margin-top:.8rem">Test results are provisional until the final formula is approved. <a href="/maison#standards">How we test</a>.</p></details>` : '';
+  const tests = p.tests ? `<details class="acc"><summary>Testing and standards</summary><ul>${p.tests.map(t => `<li>${esc(t)}</li>`).join('')}</ul><p class="pdp-note" style="margin-top:.8rem">Test results are provisional until the final formula is approved. <a href="/about#standards">How we test</a>.</p></details>` : '';
   const faq = p.faq && p.faq.length ? `<section class="pdp-faq"><h2>Questions</h2>${p.faq.map(f => `<details class="faq"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}<p class="pdp-note" style="margin-top:1rem"><a href="/faq">All questions and answers</a></p></section>` : '';
   const skinChips = p.skin ? `<p class="skin-for"><span>For</span>${p.skin.map(s => `<em>${esc(s)}</em>`).join('')}</p>` : '';
   return layout({
@@ -358,10 +369,10 @@ function productPage(p) {
 }
 
 // ---------- maison ----------
-const maison = layout({
-  title: 'Maison – Maison Maria',
+const about = layout({
+  title: 'About – Maison Maria',
   desc: 'About Maison Maria: a sun-care house formulated and made in France. Principles, production, testing and packaging.',
-  current: '/maison',
+  current: '/about',
   body: `<section class="band" aria-labelledby="hm">
   <div class="band-img"><img src="/assets/img/collection.jpg" alt="${esc(bySlug['starter-set'].alt)}" width="1536" height="1024" fetchpriority="high"></div>
   <div class="band-txt"><span class="ui" style="color:var(--gold)">Maison Maria</span><h1 id="hm" style="font-size:clamp(2.4rem,5vw,3.6rem)">A sun-care house, made in France.</h1><p>MARIA is built around one idea: that protection should be the easiest step in the routine, not the one you skip. Sun care formulated like skincare, skincare formulated around the sun, and no claims we cannot document.</p></div>
@@ -546,6 +557,38 @@ const contact = layout({
 </div></section>`
 });
 
+// ---------- maison (candles, scent, objects) ----------
+const MS = P.filter(p => p.category === 'maison');
+const maisonPage = layout({
+  title: 'Maison – Maison Maria',
+  desc: 'Maison Maria candles, reed diffuser, room mist, hand wash, silk eye mask, cleansing headband and gift card.',
+  current: '/maison',
+  body: `<section class="band band--dark" aria-labelledby="hms">
+  <div class="band-img"><img src="/assets/img/candle-pair.jpg" alt="${esc(bySlug['candle-pair'].alt)}" width="1536" height="1024" fetchpriority="high"></div>
+  <div class="band-txt"><span class="ui" style="color:var(--gold)">Maison</span><h1 id="hms" style="font-size:clamp(2.4rem,5vw,3.6rem)">The rooms the routine happens in.</h1><p>Two scents, Midi and Nuit, in candles, a diffuser, a hand wash and a linen mist; silk for the night and velvet for the sink; a card when you know the taste and not the shade. Scent lives here, in the room, and never in the skincare.</p><p class="ai-note" style="color:#B5A999">Images are AI-generated mockups</p></div>
+</section>
+<section class="sec"><div class="wrap">
+  ${grid(MS, 'grid--4')}
+  <h2 style="font-size:2rem;margin-top:4rem">Two scents.</h2>
+  <div class="cols2">
+    <div><h3 class="h3">Midi</h3><p>Noon on a warm stone terrace. Fig leaf and sea salt at the top, warm travertine and a trace of white musk underneath. Composed in Grasse for the daytime rooms: the kitchen, the bathroom, the hallway. In the candle in frosted white glass, the diffuser and the hand wash.</p></div>
+    <div><h3 class="h3">Nuit</h3><p>The evening after. Cedar and iris over smoked vanilla and a trace of tobacco leaf, on the same warm mineral base as Midi so one fades into the other. For the bedroom and the living room after dark. In the candle in espresso glass and the room and linen mist.</p></div>
+  </div>
+  <h2 style="font-size:2rem;margin-top:4rem">Why the skincare is fragrance-free and the house is not.</h2>
+  <div class="cols2">
+    <p>Fragrance is the most common cause of cosmetic allergy, and a product worn on the face every day should not carry that risk. Every MARIA skincare and sun-care formula is fragrance-free without exception.</p>
+    <p>A room is different. Scent in a candle or a diffuser is the point, not a risk, and it never touches the skin. Hand Wash is the one Maison product that does, lightly, and it is rinsed off. The division is deliberate and permanent.</p>
+  </div>
+  <h2 style="font-size:2rem;margin-top:4rem">Materials.</h2>
+  <div class="cols3">
+    <div><h3 class="h3">Wax and glass</h3><p>Rapeseed and coconut wax, cotton wicks, perfume concentrates composed in Grasse. The glass vessels are made to be kept and refilled; refills cost roughly two thirds of the first purchase.</p></div>
+    <div><h3 class="h3">Silk and velvet</h3><p>22-momme grade 6A mulberry silk for the eye mask, OEKO-TEX certified, sewn in Italy. Silk velvet for the headband, sewn in Portugal, washable at 30 degrees.</p></div>
+    <div><h3 class="h3">Paper</h3><p>Gift cards and boxes in FSC ivory board with blind embossing, envelopes in espresso paper with a gold edge. No foil, no cellophane.</p></div>
+  </div>
+  <p class="pdp-note" style="margin-top:1.5rem">Compositions, materials and prices are provisional until the suppliers are confirmed.</p>
+</div></section>`
+});
+
 // ---------- cart page ----------
 const cart = layout({
   title: 'Cart – Maison Maria',
@@ -569,11 +612,11 @@ const notFound = layout({ title: 'Page not found – Maison Maria', desc: 'This 
 for (const stale of ['produkt', 'handlekurv.html']) fs.rmSync(path.join(OUT, stale), { recursive: true, force: true });
 for (const d of ['product', 'for', 'journal']) fs.mkdirSync(path.join(OUT, d), { recursive: true });
 const pages = {
-  'index.html': home, 'shop.html': shop, 'vanity.html': vanity, 'maison.html': maison, 'guide.html': guide,
+  'index.html': home, 'shop.html': shop, 'vanity.html': vanity, 'about.html': about, 'maison.html': maisonPage, 'guide.html': guide,
   'journal.html': journal, 'faq.html': faqPage, 'shipping.html': shipping, 'privacy.html': privacy, 'terms.html': terms,
   'contact.html': contact, 'cart.html': cart, '404.html': notFound
 };
-const ASSET_V = 'v=5';
+const ASSET_V = 'v=6';
 const bust = html => html.replace(/(src|href)="\/assets\/([^"?]+)"/g, (m, a, f) => `${a}="/assets/${f}?${ASSET_V}"`);
 for (const [f, html] of Object.entries(pages)) fs.writeFileSync(path.join(OUT, f), bust(html));
 for (const p of P) fs.writeFileSync(path.join(OUT, 'product', `${p.slug}.html`), bust(productPage(p)));

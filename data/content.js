@@ -234,6 +234,12 @@ module.exports = {
       { q: 'Can I fly with it?', a: 'Yes. The batteries are far below the 100 Wh limit for hand luggage.' },
       { q: 'What if the light fails?', a: 'Two-year warranty, and the batteries are replaceable by us for a flat fee for as long as we make the product. Nothing is glued shut.' }
     ]},
+    { group: 'Maison: candles, scent and objects', items: [
+      { q: 'Why is the skincare fragrance-free when the candles are scented?', a: 'Scent belongs in the room, not on the face. Fragrance is the most common cause of cosmetic allergy; in a candle or a diffuser it is what you are paying for, and it never touches the skin.' },
+      { q: 'What are Midi and Nuit?', a: 'The two house scents, composed in Grasse. Midi is fig leaf, sea salt, warm travertine and white musk, for the daytime rooms. Nuit is cedar, iris and smoked vanilla on the same mineral base, for the evening.' },
+      { q: 'Are the candle vessels refillable?', a: 'Yes. Refills for the candle (€38), the diffuser (€58), the hand wash (€32) and the room mist (€28) slip into the original glass.' },
+      { q: 'Is the hand wash suitable for sensitive skin?', a: 'It is sulphate-free, pH 5.5 and dermatologically tested, but it is lightly scented. If your hands react to fragrance, use Cleanser as a hand wash instead.' }
+    ]},
     { group: 'Orders and delivery', items: [
       { q: 'When can I order?', a: 'The shop opens in June 2027. Until then the cart works as a preview and nothing is charged. The first 1,000 people on the waitlist receive the Starter Set before launch.' },
       { q: 'Where do you deliver?', a: 'Worldwide. Europe, the UK, Switzerland and Norway from launch; the United States, Canada, the Gulf and Asia-Pacific within the first year. Duties and taxes are shown at checkout so nothing is charged on delivery.' },

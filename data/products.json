@@ -20,6 +20,11 @@
       "id": "vanity",
       "name": "Vanity Collection",
       "blurb": "The routine, packed in espresso leather with gold."
+    },
+    {
+      "id": "maison",
+      "name": "Maison",
+      "blurb": "Candles, scent and objects for the rooms the routine happens in."
     }
   ],
   "needs": [
@@ -2446,6 +2451,402 @@
         "cleanser",
         "lip-spf30"
       ]
+    },
+    {
+      "slug": "candle",
+      "name": "Candle",
+      "sub": "Midi · Nuit",
+      "category": "maison",
+      "price": 58,
+      "format": "220 g · frosted glass, gold lid · 55 hours",
+      "size": "220 g",
+      "kicker": "Noon or night, in a room.",
+      "short": "A scented candle in two moods. Midi is noon on a warm stone terrace: fig leaf, sea salt, warm travertine and a trace of white musk. Nuit is the evening after: cedar, iris and smoked vanilla. Rapeseed and coconut wax, a cotton wick, poured in Grasse.",
+      "claims": [
+        "Two scents: Midi in frosted white glass, Nuit in espresso glass",
+        "Rapeseed and coconut wax, cotton wick, 55 hours",
+        "Poured in Grasse, France",
+        "Refillable vessel: refill €38"
+      ],
+      "use": "Burn for at least two hours the first time so the wax melts to the edge. Trim the wick to 5 mm before each burn. Keep the lid on between burns.",
+      "details": [
+        "Scent Midi: fig leaf, sea salt, warm travertine, white musk",
+        "Scent Nuit: cedar, iris, smoked vanilla, a trace of tobacco leaf",
+        "Wax: rapeseed and coconut, free of paraffin and palm",
+        "Vessel: frosted glass 9 × 9 cm, champagne-gold lid, refill sold separately"
+      ],
+      "skin": [
+        "Living room",
+        "Bathroom",
+        "Gifts"
+      ],
+      "ingredients": [
+        {
+          "name": "Rapeseed and coconut wax",
+          "role": "A clean, slow burn without paraffin or palm; the wax pool stays even."
+        },
+        {
+          "name": "Perfume concentrate, 9%",
+          "role": "Composed in Grasse, IFRA-compliant, free of phthalates."
+        },
+        {
+          "name": "Cotton wick",
+          "role": "Lead-free, self-trimming, sized to the vessel."
+        }
+      ],
+      "free_from": [
+        "Paraffin",
+        "Palm wax",
+        "Phthalates",
+        "Synthetic musks of concern"
+      ],
+      "tests": [
+        "Burn test to EN 15493 (fire safety) and EN 15494 (labelling)",
+        "IFRA 51 compliant perfume",
+        "CE-marked consumer product; not a cosmetic"
+      ],
+      "faq": [
+        {
+          "q": "Why is the skincare fragrance-free when the candles are scented?",
+          "a": "Because scent belongs in the room, not on the face. Fragrance is the most common cause of cosmetic allergy; in a candle it is what you are paying for."
+        },
+        {
+          "q": "Can I refill the glass?",
+          "a": "Yes. A refill in either scent slips into the vessel and costs €38. The glass and the lid are made to be kept."
+        }
+      ],
+      "variants": {
+        "label": "Scent",
+        "options": [
+          "Midi",
+          "Nuit"
+        ]
+      },
+      "pairs": [
+        "candle-pair",
+        "diffuser",
+        "room-mist"
+      ],
+      "image": "candle",
+      "alt": "MAISON MARIA scented candle Midi, lit, in a frosted espresso glass vessel with a gold lid (AI-generated product mockup)"
+    },
+    {
+      "slug": "candle-pair",
+      "name": "The Pair",
+      "sub": "Candle Midi · Candle Nuit",
+      "category": "maison",
+      "price": 105,
+      "compare": 116,
+      "format": "Two candles · save €11",
+      "size": "2 × 220 g",
+      "kicker": "Noon and night, side by side.",
+      "short": "Both candles in one box: Midi for the daytime rooms, Nuit for the evening ones. The two were composed to be burned in the same house, one after the other.",
+      "claims": [
+        "Candle Midi, 220 g, frosted white glass",
+        "Candle Nuit, 220 g, espresso glass",
+        "Ivory board box with blind embossing",
+        "The most given Maison gift"
+      ],
+      "use": "Midi in the kitchen and bathroom through the day; Nuit in the bedroom and living room after dark.",
+      "details": [
+        "Combined value €116",
+        "Gift-wrapped on request"
+      ],
+      "skin": [
+        "Gifts",
+        "Living room",
+        "Bedroom"
+      ],
+      "faq": [
+        {
+          "q": "Do the two scents clash?",
+          "a": "They were composed as a day and a night of the same house: Midi is fig and salt, Nuit is cedar and iris, and they share a warm mineral base so one fades into the other."
+        }
+      ],
+      "pairs": [
+        "diffuser",
+        "room-mist",
+        "gift-card"
+      ],
+      "image": "candle-pair",
+      "alt": "MAISON MARIA candles Midi and Nuit, both lit, side by side on travertine (AI-generated product mockup)",
+      "set": [
+        "candle",
+        "candle"
+      ]
+    },
+    {
+      "slug": "diffuser",
+      "name": "Reed Diffuser",
+      "sub": "Midi",
+      "category": "maison",
+      "price": 85,
+      "format": "200 ml · frosted glass, seven rattan reeds · 4 months",
+      "size": "200 ml",
+      "kicker": "Noon, all day, without a flame.",
+      "short": "The Midi scent in a diffuser that lasts four months: fig leaf, sea salt, warm travertine and white musk in an alcohol-free base, with seven rattan reeds. For the hallway, the bathroom and the rooms where a candle cannot be watched.",
+      "claims": [
+        "Scent Midi: fig leaf, sea salt, warm travertine, white musk",
+        "Alcohol-free base, four months of use",
+        "Seven natural rattan reeds, espresso collar, gold ring",
+        "Refill 200 ml, €58"
+      ],
+      "use": "Place the reeds in the bottle and flip them once a week. More reeds for more scent, fewer for less. Keep away from direct sun and polished wood.",
+      "details": [
+        "Base: plant-derived, alcohol-free carrier",
+        "Perfume concentrate 15%, composed in Grasse",
+        "Vessel refillable; refills in Midi and Nuit",
+        "Made in France"
+      ],
+      "skin": [
+        "Hallway",
+        "Bathroom",
+        "Hotel-room feeling at home"
+      ],
+      "faq": [
+        {
+          "q": "Is there a Nuit diffuser?",
+          "a": "At launch the diffuser comes in Midi, the daytime scent; Nuit is available as a refill from the second season."
+        }
+      ],
+      "pairs": [
+        "candle",
+        "room-mist",
+        "hand-wash"
+      ],
+      "image": "diffuser",
+      "alt": "MAISON MARIA reed diffuser Midi in frosted glass with rattan reeds (AI-generated product mockup)"
+    },
+    {
+      "slug": "hand-wash",
+      "name": "Hand Wash",
+      "sub": "Midi",
+      "category": "maison",
+      "price": 38,
+      "format": "300 ml · frosted glass with pump",
+      "size": "300 ml",
+      "kicker": "The one by the sink.",
+      "short": "A gentle, lightly scented hand wash in the Midi accord: fig leaf and salt, gone from the skin in a minute but left in the room. Glucoside surfactants, glycerin and pH 5.5, so hands washed twenty times a day do not crack. The only scented product that touches skin, and the scent stays in the bathroom.",
+      "claims": [
+        "Lightly scented in the Midi accord",
+        "Sulphate-free glucoside surfactants, pH 5.5",
+        "Glycerin and panthenol for hands washed often",
+        "Refill pouch 500 ml, €32"
+      ],
+      "use": "One pump, warm water, twenty seconds. Follow with Hand Cream SPF 30 in the morning.",
+      "details": [
+        "Perfume concentrate 0.6%, free of the 26 EU-listed allergens above declaration limits where possible; full list on the bottle",
+        "Glycerin 5%, panthenol 1%",
+        "Frosted glass bottle, refillable",
+        "Made in France"
+      ],
+      "skin": [
+        "Bathroom",
+        "Kitchen",
+        "Guest bathroom"
+      ],
+      "free_from": [
+        "Sulphates",
+        "Soap",
+        "Denatured alcohol",
+        "Colourants"
+      ],
+      "tests": [
+        "Dermatologically tested",
+        "pH 5.5 verified",
+        "Notified in the EU Cosmetic Products Notification Portal before sale"
+      ],
+      "faq": [
+        {
+          "q": "I thought MARIA was fragrance-free?",
+          "a": "The skincare is, without exception. Hand Wash is a Maison product: lightly scented, rinsed off, and the scent belongs to the room more than to the hand."
+        }
+      ],
+      "pairs": [
+        "hand-cream",
+        "candle",
+        "diffuser"
+      ],
+      "image": "hand-wash",
+      "alt": "MAISON MARIA hand wash in a frosted glass pump bottle beside a linen towel (AI-generated product mockup)"
+    },
+    {
+      "slug": "room-mist",
+      "name": "Room & Linen Mist",
+      "sub": "Nuit",
+      "category": "maison",
+      "price": 42,
+      "format": "100 ml · frosted glass, fine mist",
+      "size": "100 ml",
+      "kicker": "The last thing before the light goes out.",
+      "short": "Nuit as a mist for pillows, curtains and the air of a room: cedar, iris and smoked vanilla in a water-based formula that does not stain linen. Two sprays above the bed, not on it.",
+      "claims": [
+        "Scent Nuit: cedar, iris, smoked vanilla",
+        "Water-based, no stain on linen",
+        "Fine-mist atomiser, no propellant",
+        "Refillable, 100 ml refill €28"
+      ],
+      "use": "Two or three sprays into the air above the bed or the sofa, from arm's length. Not for skin.",
+      "details": [
+        "Perfume concentrate 4% in a water and plant-solubiliser base",
+        "Tested on cotton, linen and silk for staining",
+        "Frosted glass bottle, refillable",
+        "Made in France"
+      ],
+      "skin": [
+        "Bedroom",
+        "Travel: hotel rooms",
+        "Wardrobes"
+      ],
+      "tests": [
+        "Fabric staining test on cotton, linen and silk",
+        "IFRA 51 compliant perfume",
+        "CE-marked consumer product; not a cosmetic"
+      ],
+      "faq": [
+        {
+          "q": "Can I spray it on myself?",
+          "a": "No. It is composed for air and fabric, not skin. The skincare is fragrance-free for a reason."
+        }
+      ],
+      "pairs": [
+        "candle",
+        "eye-mask",
+        "night-cream"
+      ],
+      "image": "room-mist",
+      "alt": "MAISON MARIA room and linen mist Nuit in frosted glass in front of a linen pillow (AI-generated product mockup)"
+    },
+    {
+      "slug": "eye-mask",
+      "name": "Silk Eye Mask",
+      "sub": "Ivory mulberry silk",
+      "category": "maison",
+      "price": 65,
+      "format": "22 momme mulberry silk, espresso piping · one size",
+      "size": "One size",
+      "kicker": "Dark, cool and kind to the skin around the eyes.",
+      "short": "A sleep mask in 22-momme mulberry silk, ivory with espresso piping and a silk-covered strap. Silk pulls no moisture from the skin and leaves no creases, which is the point of wearing Night Cream in the first place.",
+      "claims": [
+        "22 momme mulberry silk, both sides",
+        "Espresso piping, silk-covered adjustable strap",
+        "Blocks light fully, weighs 18 g",
+        "Comes in a silk pouch"
+      ],
+      "use": "Wear over the night routine. Hand wash in cool water with a gentle detergent; dry flat.",
+      "details": [
+        "Silk: 100% mulberry, grade 6A, OEKO-TEX Standard 100",
+        "Filling: silk floss",
+        "Made in Italy",
+        "Pouch in the same silk"
+      ],
+      "skin": [
+        "Sleep",
+        "Flights",
+        "Gifts"
+      ],
+      "faq": [
+        {
+          "q": "Why silk and not cotton?",
+          "a": "Cotton absorbs the night cream and leaves lines on the skin by morning. Silk does neither."
+        }
+      ],
+      "pairs": [
+        "night-cream",
+        "room-mist",
+        "headband"
+      ],
+      "image": "eye-mask",
+      "alt": "MAISON MARIA silk eye mask in ivory with espresso piping (AI-generated product mockup)"
+    },
+    {
+      "slug": "headband",
+      "name": "Cleansing Headband",
+      "sub": "Silk velvet",
+      "category": "maison",
+      "price": 35,
+      "format": "Ivory silk velvet, knotted · one size",
+      "size": "One size",
+      "kicker": "For the two minutes at the sink.",
+      "short": "A wide, soft headband in ivory silk velvet that keeps hair out of cleanser and serum without creasing it. The small thing that makes the evening routine feel like a ritual rather than a chore.",
+      "claims": [
+        "Silk velvet, ivory, knotted front",
+        "Wide band, no pressure marks",
+        "Espresso woven label",
+        "Machine-washable in a bag at 30 degrees"
+      ],
+      "use": "Push the hair back before cleansing. Wash in a laundry bag at 30 degrees, dry flat.",
+      "details": [
+        "Outer: silk-viscose velvet",
+        "Inner: elastic cotton band",
+        "Made in Portugal"
+      ],
+      "skin": [
+        "Evening routine",
+        "Teen routine",
+        "Gifts"
+      ],
+      "faq": [
+        {
+          "q": "Does it fit thick or long hair?",
+          "a": "Yes. The band is wide and the elastic generous; it holds hair back rather than tight."
+        }
+      ],
+      "pairs": [
+        "cleanser",
+        "clear-cleanser",
+        "eye-mask"
+      ],
+      "image": "headband",
+      "alt": "MAISON MARIA cleansing headband in ivory silk velvet on a waffle towel (AI-generated product mockup)"
+    },
+    {
+      "slug": "gift-card",
+      "name": "Gift Card",
+      "sub": "Boxed or by email",
+      "category": "maison",
+      "price": 100,
+      "format": "€50 to €500 · espresso envelope, ivory card",
+      "size": "Card",
+      "kicker": "When you know the taste and not the shade.",
+      "short": "A gift card in an espresso envelope with a blind-embossed ivory card, or sent by email within the hour. Valid for two years across everything in the shop, including the Vanity Collection.",
+      "claims": [
+        "Values from €50 to €500",
+        "Boxed card by post or digital by email",
+        "Valid for 24 months, any product",
+        "Can be combined with other payment"
+      ],
+      "use": "Choose a value and a delivery method. The recipient enters the code at checkout.",
+      "details": [
+        "The preview shows the €100 card; the value is chosen at checkout when payment opens",
+        "Card: FSC ivory board, blind embossing; envelope: espresso paper with gold edge",
+        "Digital cards arrive within the hour with a personal message"
+      ],
+      "skin": [
+        "Gifts"
+      ],
+      "faq": [
+        {
+          "q": "Can it be used in other currencies?",
+          "a": "Yes. The value converts at checkout to the local currency shown."
+        }
+      ],
+      "variants": {
+        "label": "Value",
+        "options": [
+          "€50",
+          "€100",
+          "€250",
+          "€500"
+        ]
+      },
+      "pairs": [
+        "candle-pair",
+        "minis",
+        "first-routine"
+      ],
+      "image": "gift-card",
+      "alt": "MAISON MARIA gift card in an espresso envelope with an ivory ribbon (AI-generated product mockup)"
     }
   ]
 }

@@ -1413,6 +1413,79 @@
       ]
     },
     {
+      "slug": "vanity-xxl",
+      "name": "Vanity XXL",
+      "sub": "Vanity Collection · Noon mirror, two tiers",
+      "category": "vanity",
+      "price": 795,
+      "format": "45 × 32 × 24 cm · espresso vegan leather, gold corners · lit mirror",
+      "size": "45 × 32 × 24 cm",
+      "dims": "45 × 32 × 24 cm",
+      "kicker": "The dressing table, in a trunk.",
+      "short": "A vanity trunk with two tiers of removable ivory suede trays, gold corner caps and the largest Noon mirror in the collection: a frosted ring light at 5,000 K with Morning, Noon and Evening settings and a second light bar for the lower tier. Holds the complete routine, sun care and skincare, twelve products packed and ready, with room left for what is yours.",
+      "claims": [
+        "Noon mirror, 5,000 K, CRI 97, plus a light bar for the trays",
+        "Two removable tiers, 14 compartments, room for brushes and tools",
+        "USB-C, 40 hours per charge, lights up when the lid opens",
+        "Espresso pebbled vegan leather, champagne-gold corners and clasps"
+      ],
+      "use": "Stays on the dressing table or travels as checked luggage in its dust bag. Open the lid and the mirror lights to Noon; lift the upper tier to reach the lower one, which has its own light.",
+      "details": [
+        "Dimensions 45 × 32 × 24 cm, weight approx. 2.9 kg empty",
+        "Light: 72 LEDs behind a frosted glass ring, 5,000 K / 3,000 K / 2,700 K, 1,400 lux at 30 cm on full, plus a 5,000 K bar under the upper tier; no UV",
+        "Battery 4,000 mAh, USB-C, full charge in 2.5 hours, auto-off after 20 minutes",
+        "Contents: Daily Fluid × 2, Tinted Fluid, Mineral Fluid, Sport Stick, Lip SPF 30, Cleanser, Antioxidant Serum, Hydrating Serum, Daily Moisturiser, Night Cream, After Sun",
+        "Product value €661; the lit trunk alone €134",
+        "Vegan leather: polyurethane on recycled polyester, solvent-free; dust bag in ivory cotton"
+      ],
+      "skin": [
+        "Everyone"
+      ],
+      "faq": [
+        {
+          "q": "How much more does it hold than the King Size?",
+          "a": "Twice the volume: two tiers instead of one, 14 compartments instead of 8, and the lower tier is deep enough for 150 ml bottles standing up. The twelve products inside leave roughly a third of the space free."
+        },
+        {
+          "q": "Can I choose the products inside?",
+          "a": "At launch the trunk comes pre-packed. Shade of Tinted Fluid can be chosen at checkout; from the second season the trunk can be configured."
+        },
+        {
+          "q": "Can it be checked in?",
+          "a": "Yes. It ships with a dust bag and the corners are reinforced for exactly that. The battery is far below airline limits."
+        }
+      ],
+      "pairs": [
+        "vanity-king-size",
+        "compact",
+        "complete-routine"
+      ],
+      "image": "vanity-xxl",
+      "alt": "Maison Maria Vanity XXL, an open espresso vanity trunk with a lit mirror and two tiers of products (AI-generated product mockup)",
+      "set": [
+        "daily-fluid",
+        "daily-fluid",
+        "tinted-fluid",
+        "mineral-fluid",
+        "sport-stick",
+        "lip-spf30",
+        "cleanser",
+        "antioxidant-serum",
+        "hydrating-serum",
+        "moisturiser",
+        "night-cream",
+        "after-sun"
+      ],
+      "variants": {
+        "label": "Tinted Fluid shade",
+        "options": [
+          "Light",
+          "Medium",
+          "Deep"
+        ]
+      }
+    },
+    {
       "slug": "vanity-king-size",
       "name": "Vanity King Size",
       "sub": "Vanity Collection · Noon mirror",
@@ -1463,7 +1536,7 @@
         "vanity-mini",
         "complete-routine"
       ],
-      "image": "vanity-king",
+      "image": "vanity-king-noon",
       "alt": "Maison Maria Vanity King Size, an open espresso beauty case with a lit daylight mirror and the collection inside (AI-generated product mockup)",
       "set": [
         "daily-fluid",
@@ -1526,7 +1599,7 @@
         "complete-routine",
         "sun-mist"
       ],
-      "image": "vanity-medium",
+      "image": "vanity-medium-noon",
       "alt": "Maison Maria Vanity Medium, an open espresso travel case with a lit mirror in the lid and four products (AI-generated product mockup)",
       "set": [
         "daily-fluid",
@@ -1574,7 +1647,7 @@
         "sport-stick",
         "starter-set"
       ],
-      "image": "vanity-mini",
+      "image": "vanity-mini-noon",
       "alt": "Maison Maria Vanity Mini, an espresso pouch with a lit compact mirror and two products (AI-generated product mockup)",
       "set": [
         "daily-fluid",

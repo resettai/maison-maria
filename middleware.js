@@ -61,10 +61,10 @@ function page(nextPath, state) {
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#3B2A22">
 <title>Maison Maria</title>
-<link rel="icon" href="/favicon-64.png" type="image/png">
+<link rel="icon" href="/favicon-64.png?v=4" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" as="image" href="/assets/img/daily-fluid.jpg" media="(max-width: 59.99rem)">
-<link rel="preload" as="image" href="/assets/img/collection.jpg" media="(min-width: 60rem)">
+<link rel="preload" as="image" href="/assets/img/daily-fluid.jpg?v=4" media="(max-width: 59.99rem)">
+<link rel="preload" as="image" href="/assets/img/collection.jpg?v=4" media="(min-width: 60rem)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&amp;family=Inter:wght@400;500&amp;display=swap">
@@ -77,9 +77,9 @@ body { background: var(--espresso); color: var(--ivory); font-family: 'Cormorant
 .photo { position: fixed; inset: 0; z-index: 0; background: var(--espresso); overflow: hidden; }
 .photo img { width: 100%; height: 118%; object-fit: cover; object-position: 50% 30%; display: block; animation: fade 1.4s ease both; }
 .credit { position: absolute; right: .9rem; top: .8rem; font-family: Inter, system-ui, sans-serif; font-size: .58rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(244,239,230,.8); text-shadow: 0 0 6px rgba(42,31,25,.5); z-index: 1; }
-.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,31,25,.28) 0%, rgba(42,31,25,0) 22%, rgba(42,31,25,0) 42%, rgba(42,31,25,.84) 72%, rgba(42,31,25,.95) 100%); }
+.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,31,25,.28) 0%, rgba(42,31,25,0) 22%, rgba(42,31,25,0) 40%, rgba(42,31,25,.9) 66%, rgba(42,31,25,.96) 100%); }
 .panel { position: relative; z-index: 1; min-height: 100svh; display: flex; flex-direction: column; padding: calc(1.4rem + env(safe-area-inset-top)) 20px calc(1.2rem + env(safe-area-inset-bottom)); }
-.logo { width: 150px; height: auto; display: block; margin: 0 auto; }
+.logo { width: 160px; height: auto; display: block; margin: 0 auto; }
 .logo--dark { display: none; }
 .rule { width: 2.5rem; height: 1px; background: var(--gold); margin: 1.4rem 0 1.2rem; }
 .gate { margin-top: auto; padding-top: 38svh; animation: in 1s .35s ease both; }
@@ -107,7 +107,7 @@ footer span { display: inline-block; margin: 0 .6rem; }
   .credit { color: rgba(42,31,25,.55); text-shadow: none; }
   .photo::after { background: linear-gradient(90deg, rgba(42,31,25,0) 85%, rgba(42,31,25,.08) 100%); }
   .panel { min-height: 100svh; justify-content: center; align-items: center; padding: 5rem clamp(2rem, 6vw, 7rem) 6rem; }
-  .logo { width: 220px; }
+  .logo { width: 230px; }
   .logo--light { display: none; }
   .logo--dark { display: block; }
   .gate { margin-top: 2.2rem; padding-top: 0; width: 100%; max-width: 26rem; text-align: center; }
@@ -126,10 +126,10 @@ footer span { display: inline-block; margin: 0 .6rem; }
 </head>
 <body>
 <div class="shell">
-  <div class="photo" aria-hidden="true"><picture><source media="(min-width: 60rem)" srcset="/assets/img/collection.jpg"><img src="/assets/img/daily-fluid.jpg" alt="" width="960" height="1280"></picture><span class="credit">AI-generated mockup</span></div>
+  <div class="photo" aria-hidden="true"><picture><source media="(min-width: 60rem)" srcset="/assets/img/collection.jpg?v=4"><img src="/assets/img/daily-fluid.jpg?v=4" alt="" width="960" height="1280"></picture><span class="credit">AI-generated mockup</span></div>
   <main class="panel">
-    <img class="logo logo--light" src="/assets/maison-maria-lockup-light.svg" alt="Maison Maria" width="150" height="52">
-    <img class="logo logo--dark" src="/assets/maison-maria-lockup.svg" alt="Maison Maria" width="220" height="77">
+    <img class="logo logo--light" src="/assets/maison-maria-lockup-light.svg?v=4" alt="Maison Maria" width="160" height="63">
+    <img class="logo logo--dark" src="/assets/maison-maria-lockup.svg?v=4" alt="Maison Maria" width="230" height="90">
     <div class="gate">
       <div class="rule" aria-hidden="true"></div>
       <h1>A private preview.</h1>

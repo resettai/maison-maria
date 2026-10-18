@@ -139,7 +139,7 @@ module.exports = {
       dek: 'A sunscreen brand that puts a light in its vanity cases is not a gimmick. It is the only way to check the thing we sell.',
       date: 'October 2026',
       read: '3 min',
-      image: 'vanity-king',
+      image: 'vanity-king-noon',
       body: `
 <p>Sunscreen is applied in the worst light of the day. A bathroom at seven in the morning runs on a 2,700 kelvin bulb, warm and flattering and useless for seeing whether the fluid has reached the hairline or the tint matches the neck. The first honest look is in the car mirror, by which point the decision is made.</p>
 <h2>What 5,000 kelvin does</h2>

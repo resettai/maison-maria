@@ -12,7 +12,7 @@ const byNeed = Object.fromEntries(data.needs.map(n => [n.id, n]));
 const nok = n => '€' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 const catName = id => data.categories.find(c => c.id === id).name;
-const WIDE = ['collection', 'set-morning', 'set-complete', 'vanity-king', 'vanity-medium', 'vanity-mini', 'nord', 'atelier'];
+const WIDE = ['collection', 'set-morning', 'set-complete', 'set-first-routine', 'set-minis', 'vanity-xxl', 'vanity-king-noon', 'vanity-medium-noon', 'vanity-mini-noon', 'nord', 'atelier'];
 const isWide = img => WIDE.includes(img);
 
 const NAV = [
@@ -45,7 +45,7 @@ function layout({ title, desc, body, current }) {
 <a class="skip" href="#main">Skip to content</a>
 <header class="hdr">
   <div class="wrap hdr-in">
-    <a class="hdr-brand" href="/" aria-label="Maison Maria – home"><img src="/assets/maria-wordmark-compact.svg" alt="" width="1029" height="288"></a>
+    <a class="hdr-brand" href="/" aria-label="Maison Maria – home"><img src="/assets/maria-wordmark-compact.svg" alt="" width="837" height="328"></a>
     <nav class="nav ui" aria-label="Menu">${nav}</nav>
     <div class="hdr-tools ui">
       <button type="button" class="cart-btn" data-open-cart aria-label="Open cart">Cart <span class="count" data-cart-count data-zero="true">0</span></button>
@@ -59,7 +59,7 @@ ${body}
 </main>
 <footer class="ftr">
   <div class="wrap ftr-in">
-    <div><img src="/assets/maison-maria-lockup-inverse.svg" alt="Maison Maria" width="640" height="420"><p class="ftr-note" style="margin-top:1rem">Sun care as skincare. Formulated and made in France.</p></div>
+    <div><img src="/assets/maison-maria-lockup-inverse.svg" alt="Maison Maria" width="837" height="328"><p class="ftr-note" style="margin-top:1rem">Sun care as skincare. Formulated and made in France.</p></div>
     <div><h4>Shop</h4><a href="/shop#sun">Sun care</a><a href="/shop#skin">Skincare</a><a href="/shop#sets">Sets</a><a href="/vanity">Vanity Collection</a><a href="/cart">Cart</a></div>
     <div><h4>Learn</h4><a href="/guide">Sun guide</a><a href="/journal">Journal</a><a href="/faq">FAQ</a><a href="/maison#standards">Testing and standards</a></div>
     <div><h4>Maison</h4><a href="/maison">About the house</a><a href="/maison#france">Fabriqué en France</a><a href="/contact">Contact</a><a href="/shipping">Shipping and returns</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
@@ -174,11 +174,11 @@ const home = layout({
 </section>
 
 <section class="band band--dark" aria-labelledby="h-vanity">
-  <div class="band-img"><img src="/assets/img/vanity-king.jpg" alt="${esc(bySlug['vanity-king-size'].alt)}" loading="lazy" width="1280" height="960"></div>
+  <div class="band-img"><img src="/assets/img/vanity-king-noon.jpg" alt="${esc(bySlug['vanity-king-size'].alt)}" loading="lazy" width="1280" height="960"></div>
   <div class="band-txt">
     <span class="ui" style="color:var(--gold)">Vanity Collection</span>
     <h2 id="h-vanity">Every case opens to noon.</h2>
-    <p>The Vanity Collection carries a daylight mirror in every size: 5,000 K, CRI 97, the light you will be seen in. King Size for the bathroom, Medium for travel, Mini with The Compact for the handbag. Espresso vegan leather, champagne gold, and the routine packed and ready.</p>
+    <p>The Vanity Collection carries a daylight mirror in every size: 5,000 K, CRI 97, the light you will be seen in. XXL for the dressing table, King Size for the bathroom, Medium for travel, Mini with The Compact for the handbag. Espresso vegan leather, champagne gold, and the routine packed and ready.</p>
     <a class="btn" href="/vanity">See the Vanity Collection</a>
   </div>
 </section>
@@ -271,14 +271,14 @@ function needPage(n) {
 
 // ---------- vanity ----------
 const V = P.filter(p => p.category === 'vanity');
-const LIGHT = { 'vanity-king-size': 'Noon ring light, 3 settings', 'vanity-medium': 'Noon bar, 2 steps', 'vanity-mini': 'The Compact, included' };
+const LIGHT = { 'vanity-xxl': 'Noon ring light, 3 settings, plus tray bar', 'vanity-king-size': 'Noon ring light, 3 settings', 'vanity-medium': 'Noon bar, 2 steps', 'vanity-mini': 'The Compact, included' };
 const vanity = layout({
   title: 'Vanity Collection – Maison Maria',
   desc: 'Maison Maria Vanity Collection: King Size, Medium and Mini in espresso vegan leather with gold.',
   current: '/vanity',
   body: `<section class="band band--dark" aria-labelledby="hv">
-  <div class="band-img"><img src="/assets/img/vanity-king.jpg" alt="${esc(bySlug['vanity-king-size'].alt)}" width="1280" height="960" fetchpriority="high"></div>
-  <div class="band-txt"><span class="ui" style="color:var(--gold)">Maison Maria</span><h1 id="hv" style="font-size:clamp(2.4rem,5vw,3.6rem)">Vanity Collection</h1><p>Three sizes and a compact, one idea: a mirror lit to midday daylight in every one, so skincare and SPF are checked in the light they will be seen in. Espresso pebbled vegan leather, champagne-gold hardware, ivory lining, and the products packed and ready.</p><p class="ai-note" style="color:#B5A999">Images are AI-generated mockups</p></div>
+  <div class="band-img"><img src="/assets/img/vanity-xxl.jpg" alt="${esc(bySlug['vanity-xxl'].alt)}" width="1280" height="960" fetchpriority="high"></div>
+  <div class="band-txt"><span class="ui" style="color:var(--gold)">Maison Maria</span><h1 id="hv" style="font-size:clamp(2.4rem,5vw,3.6rem)">Vanity Collection</h1><p>Four sizes and a compact, one idea: a mirror lit to midday daylight in every one, so skincare and SPF are checked in the light they will be seen in. Espresso pebbled vegan leather, champagne-gold hardware, ivory lining, and the products packed and ready.</p><p class="ai-note" style="color:#B5A999">Images are AI-generated mockups</p></div>
 </section>
 <section class="sec"><div class="wrap">
   ${grid(V)}
@@ -291,11 +291,12 @@ const vanity = layout({
   <div class="cols3">
     <div><h3 class="h3">Why 5,000 K</h3><p>Midday daylight sits around 5,000 kelvin. Bathroom bulbs sit at 2,700. Tint, SPF and make-up checked under one look different under the other, which is why so much looks right indoors and wrong at the door. The Noon setting shows you what the sun will see.</p></div>
     <div><h3 class="h3">Why CRI 97</h3><p>Colour rendering index measures how truthfully a light shows colour. Most LED bulbs score 80, which flattens skin tones and reddens nothing. The Noon lights are specified at 97, close to daylight, so a shade match made in the case holds outside it.</p></div>
-    <div><h3 class="h3">Built to be charged rarely</h3><p>USB-C on every piece, 30 hours in the King Size, 20 in the Medium, 10 in The Compact, with auto-off. The LEDs are rated for 30,000 hours; the batteries are replaceable by us. Nothing is glued shut.</p></div>
+    <div><h3 class="h3">Built to be charged rarely</h3><p>USB-C on every piece, 40 hours in the XXL, 30 in the King Size, 20 in the Medium, 10 in The Compact, with auto-off. The LEDs are rated for 30,000 hours; the batteries are replaceable by us. Nothing is glued shut.</p></div>
   </div>
   <div class="tbl-wrap"><table class="tbl">
     <thead><tr><th>Model</th><th>Light</th><th>Colour temperatures</th><th>Brightness at 30 cm</th><th>Battery</th></tr></thead>
     <tbody>
+      <tr><td>XXL</td><td>Frosted ring light, 72 LEDs, plus tray bar</td><td>2,700 / 3,000 / 5,000 K</td><td>1,400 lux</td><td>4,000 mAh · 40 h · USB-C</td></tr>
       <tr><td>King Size</td><td>Frosted ring light, 56 LEDs</td><td>2,700 / 3,000 / 5,000 K</td><td>1,200 lux</td><td>2,600 mAh · 30 h · USB-C</td></tr>
       <tr><td>Medium</td><td>Frosted light bar, 24 LEDs</td><td>5,000 K</td><td>800 lux</td><td>1,500 mAh · 20 h · USB-C</td></tr>
       <tr><td>Mini with The Compact</td><td>Frosted ring light, 16 LEDs</td><td>5,000 K</td><td>600 lux</td><td>500 mAh · 10 h · USB-C</td></tr>
@@ -572,10 +573,12 @@ const pages = {
   'journal.html': journal, 'faq.html': faqPage, 'shipping.html': shipping, 'privacy.html': privacy, 'terms.html': terms,
   'contact.html': contact, 'cart.html': cart, '404.html': notFound
 };
-for (const [f, html] of Object.entries(pages)) fs.writeFileSync(path.join(OUT, f), html);
-for (const p of P) fs.writeFileSync(path.join(OUT, 'product', `${p.slug}.html`), productPage(p));
-for (const n of data.needs) fs.writeFileSync(path.join(OUT, 'for', `${n.id}.html`), needPage(n));
-C.journal.forEach((a, i) => fs.writeFileSync(path.join(OUT, 'journal', `${a.slug}.html`), articlePage(a, i)));
+const ASSET_V = 'v=4';
+const bust = html => html.replace(/(src|href)="\/assets\/([^"?]+)"/g, (m, a, f) => `${a}="/assets/${f}?${ASSET_V}"`);
+for (const [f, html] of Object.entries(pages)) fs.writeFileSync(path.join(OUT, f), bust(html));
+for (const p of P) fs.writeFileSync(path.join(OUT, 'product', `${p.slug}.html`), bust(productPage(p)));
+for (const n of data.needs) fs.writeFileSync(path.join(OUT, 'for', `${n.id}.html`), bust(needPage(n)));
+C.journal.forEach((a, i) => fs.writeFileSync(path.join(OUT, 'journal', `${a.slug}.html`), bust(articlePage(a, i))));
 fs.copyFileSync(path.join(ROOT, 'src', 'styles.css'), path.join(OUT, 'styles.css'));
 fs.copyFileSync(path.join(ROOT, 'src', 'app.js'), path.join(OUT, 'app.js'));
 console.log(`built ${Object.keys(pages).length + P.length + data.needs.length + C.journal.length} pages into public/`);
